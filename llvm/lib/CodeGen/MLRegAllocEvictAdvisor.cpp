@@ -1159,11 +1159,6 @@ void llvm::extractMBBFrequency(
 // Development mode-specific implementations
 #ifdef LLVM_HAVE_TFLITE
 
-RegAllocEvictionAdvisorProvider *
-llvm::createDevelopmentModeAdvisorProvider(LLVMContext &Ctx) {
-  return new DevelopmentModeEvictionAdvisorProvider(Ctx);
-}
-
 RegAllocEvictionAdvisorAnalysisLegacy *
 llvm::createDevelopmentModeAdvisorAnalysisLegacy() {
   return new DevelopmentModeEvictionAdvisorAnalysisLegacy();
@@ -1240,9 +1235,22 @@ bool RegAllocScoring::runOnMachineFunction(MachineFunction &MF) {
 }
 #endif // #ifdef LLVM_HAVE_TFLITE
 
-RegAllocEvictionAdvisorProvider *
-llvm::createReleaseModeAdvisorProvider(LLVMContext &Ctx) {
-  return new ReleaseModeEvictionAdvisorProvider(Ctx);
+void RegAllocEvictionAdvisorAnalysis::initializeMLProvider(
+    RegAllocEvictionAdvisorAnalysisLegacy::AdvisorMode Mode, LLVMContext &Ctx) {
+  if (Provider)
+    return;
+  switch (Mode) {
+  case RegAllocEvictionAdvisorAnalysisLegacy::AdvisorMode::Development:
+#if defined(LLVM_HAVE_TFLITE)
+    Provider.reset(new DevelopmentModeEvictionAdvisorProvider(Ctx));
+#endif
+    break;
+  case RegAllocEvictionAdvisorAnalysisLegacy::AdvisorMode::Release:
+    Provider.reset(new ReleaseModeEvictionAdvisorProvider(Ctx));
+    break;
+  default:
+    break;
+  }
 }
 
 RegAllocEvictionAdvisorAnalysisLegacy *
