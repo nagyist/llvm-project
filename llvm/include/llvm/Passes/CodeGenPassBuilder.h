@@ -1056,7 +1056,7 @@ void CodeGenPassBuilder<Derived, TargetMachineT>::addMachineSSAOptimization(
 ///
 /// A target that uses the standard regalloc pass order for fast or optimized
 /// allocation may still override this for per-target regalloc
-/// selection. But -regalloc=... always takes precedence.
+/// selection. But -regalloc-npm=... always takes precedence.
 template <typename Derived, typename TargetMachineT>
 void CodeGenPassBuilder<Derived, TargetMachineT>::addTargetRegisterAllocator(
     AddMachinePass &addPass, bool Optimized) const {
@@ -1073,6 +1073,22 @@ template <typename Derived, typename TargetMachineT>
 void CodeGenPassBuilder<Derived, TargetMachineT>::addRegAllocPass(
     AddMachinePass &addPass, bool Optimized) const {
   // TODO: Parse Opt.RegAlloc to add register allocator.
+  // Use the specified -regalloc-npm={basic|greedy|fast|pbqp}
+  if (Opt.RegAlloc > RegAllocType::Default) {
+    switch (Opt.RegAlloc) {
+      case RegAllocType::Fast:
+        addPass(RegAllocFastPass());
+        break;
+      case RegAllocType::Greedy:
+        addPass(RAGreedyPass());
+        break;
+      default:
+        llvm_unreachable("Register allocator not supported yet.");
+    }
+    return;
+  }
+  // -regalloc=default or unspecified, so pick based on the optimization level.
+  derived().addTargetRegisterAllocator(addPass, Optimized);
 }
 
 template <typename Derived, typename TargetMachineT>

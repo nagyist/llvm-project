@@ -52,7 +52,7 @@ struct CGPassBuilderOption {
   bool RequiresCodeGenSCCOrder = false;
 
   RunOutliner EnableMachineOutliner = RunOutliner::TargetDefault;
-  StringRef RegAlloc = "default";
+  RegAllocType RegAlloc = RegAllocType::Default;
   std::optional<GlobalISelAbortMode> EnableGlobalISelAbort;
   std::string FSProfileFile;
   std::string FSRemappingFile;
