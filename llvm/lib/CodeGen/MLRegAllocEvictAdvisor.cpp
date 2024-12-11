@@ -420,12 +420,12 @@ public:
   ReleaseModeEvictionAdvisorAnalysisLegacy()
       : RegAllocEvictionAdvisorAnalysisLegacy(AdvisorMode::Release) {}
 
-  std::unique_ptr<RegAllocEvictionAdvisor>
-  getAdvisor(const MachineFunction &MF, const RAGreedy &RA) override {
+  std::unique_ptr<RegAllocEvictionAdvisorProvider>&
+  getProvider() override {
     auto *MBFI = &getAnalysis<MachineBlockFrequencyInfoWrapperPass>().getMBFI();
     auto *Loops = &getAnalysis<MachineLoopInfoWrapperPass>().getLI();
     Provider->setAnalyses(MBFI, Loops);
-    return Provider->getAdvisor(MF, RA);
+    return Provider;
   }
 
   void logRewardIfNeeded(const MachineFunction &MF,
@@ -450,7 +450,7 @@ public:
   }
 
 private:
-  std::unique_ptr<ReleaseModeEvictionAdvisorProvider> Provider;
+  // std::unique_ptr<ReleaseModeEvictionAdvisorProvider> Provider;
 };
 
 // ===================================
@@ -602,12 +602,12 @@ public:
     Provider->logRewardIfNeeded(MF, GetReward);
   }
 
-  std::unique_ptr<RegAllocEvictionAdvisor>
-  getAdvisor(const MachineFunction &MF, const RAGreedy &RA) override {
+  std::unique_ptr<RegAllocEvictionAdvisorProvider>&
+  getProvider() override {
     auto *MBFI = &getAnalysis<MachineBlockFrequencyInfoWrapperPass>().getMBFI();
     auto *Loops = &getAnalysis<MachineLoopInfoWrapperPass>().getLI();
     Provider->setAnalyses(MBFI, Loops);
-    return Provider->getAdvisor(MF, RA);
+    return Provider;
   }
 
   // support for isa<> and dyn_cast.
@@ -622,7 +622,7 @@ public:
   }
 
 private:
-  std::unique_ptr<DevelopmentModeEvictionAdvisorProvider> Provider;
+  // std::unique_ptr<DevelopmentModeEvictionAdvisorProvider> Provider;
 };
 
 #endif // #ifdef LLVM_HAVE_TFLITE
