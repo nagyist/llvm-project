@@ -1083,7 +1083,7 @@ void CodeGenPassBuilder<Derived, TargetMachineT>::addRegAllocPass(
         addPass(RAGreedyPass());
         break;
       default:
-        llvm_unreachable("Register allocator not supported yet.");
+        report_fatal_error("Register allocator not supported yet.", false);
     }
     return;
   }
@@ -1159,20 +1159,23 @@ void CodeGenPassBuilder<Derived, TargetMachineT>::addOptimizedRegAlloc(
   // PreRA instruction scheduling.
   addPass(MachineSchedulerPass());
 
-  if (derived().addRegAssignmentOptimized(addPass)) {
-    // Allow targets to expand pseudo instructions depending on the choice of
-    // registers before MachineCopyPropagation.
-    derived().addPostRewrite(addPass);
-
-    // Copy propagate to forward register uses and try to eliminate COPYs that
-    // were not coalesced.
-    addPass(MachineCopyPropagationPass());
-
-    // Run post-ra machine LICM to hoist reloads / remats.
-    //
-    // FIXME: can this move into MachineLateOptimization?
-    addPass(MachineLICMPass());
+  if (auto E = derived().addRegAssignmentOptimized(addPass)) {
+    // addRegAssignmentOptimized did not add a reg alloc pass, so do nothing.
+    // FIXME: This is not really an error.
+    return;
   }
+  // Allow targets to expand pseudo instructions depending on the choice of
+  // registers before MachineCopyPropagation.
+  derived().addPostRewrite(addPass);
+
+  // Copy propagate to forward register uses and try to eliminate COPYs that
+  // were not coalesced.
+  addPass(MachineCopyPropagationPass());
+
+  // Run post-ra machine LICM to hoist reloads / remats.
+  //
+  // FIXME: can this move into MachineLateOptimization?
+  addPass(MachineLICMPass());
 }
 
 //===---------------------------------------------------------------------===//

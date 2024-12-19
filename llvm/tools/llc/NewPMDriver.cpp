@@ -56,7 +56,7 @@ using namespace llvm;
 // create option for RegAllocType enum
 static cl::opt<RegAllocType> RegAlloc(
     "regalloc-npm", cl::desc("Register allocator to use for new pass manager"),
-    cl::Hidden, cl::init(RegAllocType::Default),
+    cl::Hidden, cl::init(RegAllocType::Unset),
     cl::values(
         clEnumValN(RegAllocType::Default, "default",
                    "Default register allocator"),
