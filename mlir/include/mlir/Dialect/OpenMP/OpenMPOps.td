@@ -1692,7 +1692,14 @@ def CancellationPointOp : OpenMP_Op<"cancellation_point", clauses = [
 //===----------------------------------------------------------------------===//
 // 2.19.7.3 Declare Mapper Directive
 //===----------------------------------------------------------------------===//
-def DeclareMapperOp : OpenMP_Op<"declare_mapper", singleRegion = 1> {
+def DeclareMapperOp : OpenMP_Op<"declare_mapper", [
+    AffineScope,
+    AutomaticAllocationScope,
+    IsolatedFromAbove,
+    OutlineableOpenMPOpInterface,
+    RecipeInterface,
+    Symbol
+  ]> {
   let summary = "declare mapper directive";
   let description = [{
     The declare mapper directive declares a user-defined mapper for a given
@@ -1702,12 +1709,16 @@ def DeclareMapperOp : OpenMP_Op<"declare_mapper", singleRegion = 1> {
   let arguments = (ins  SymbolNameAttr:$sym_name,
                         TypeAttr:$var_type);
 
-  let assemblyFormat = "$sym_name `:` $var_type $region attr-dict";
+  let regions = (region AnyRegion:$body);
+
+  let assemblyFormat = "$sym_name `:` $var_type $body attr-dict";
 }
 
-def DeclareMapperInfoOp : OpenMP_Op<"declare_mapper_info", clauses = [
+def DeclareMapperInfoOp : OpenMP_Op<"declare_mapper_info", [
+    Terminator
+  ], clauses = [
     OpenMP_MapClause
-    ]> {
+  ]> {
   let summary = "declare mapper info";
   let description = [{
     This Op is used to capture the map information related to it's
