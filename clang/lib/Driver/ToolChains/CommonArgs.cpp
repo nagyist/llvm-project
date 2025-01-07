@@ -1317,7 +1317,7 @@ void tools::addOpenMPHostOffloadingArgs(const Compilation &C,
 /// Add Fortran runtime libs
 void tools::addFortranRuntimeLibs(const ToolChain &TC, const ArgList &Args,
                                   llvm::opt::ArgStringList &CmdArgs) {
-  // Link FortranRuntime and FortranDecimal
+  // Link FortranRuntime
   // These are handled earlier on Windows by telling the frontend driver to
   // add the correct libraries to link against as dependents in the object
   // file.
@@ -1334,7 +1334,6 @@ void tools::addFortranRuntimeLibs(const ToolChain &TC, const ArgList &Args,
         addAsNeededOption(TC, Args, CmdArgs, /*as_needed=*/false);
     }
     CmdArgs.push_back("-lFortranRuntime");
-    CmdArgs.push_back("-lFortranDecimal");
     addArchSpecificRPath(TC, Args, CmdArgs);
   }
 

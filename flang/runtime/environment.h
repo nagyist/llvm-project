@@ -10,7 +10,7 @@
 #define FORTRAN_RUNTIME_ENVIRONMENT_H_
 
 #include "flang/Common/optional.h"
-#include "flang/Decimal/decimal.h"
+#include "flang/Common/decimal.h"
 
 struct EnvironmentDefaultList;
 

@@ -1,4 +1,4 @@
-//===-- lib/Decimal/big-radix-floating-point.h ------------------*- C++ -*-===//
+//===-- lib/Common/big-radix-floating-point.h -------------------*- C++ -*-===//
 //
 // Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.
 // See https://llvm.org/LICENSE.txt for license information.
@@ -6,8 +6,8 @@
 //
 //===----------------------------------------------------------------------===//
 
-#ifndef FORTRAN_DECIMAL_BIG_RADIX_FLOATING_POINT_H_
-#define FORTRAN_DECIMAL_BIG_RADIX_FLOATING_POINT_H_
+#ifndef FORTRAN_COMMON_BIG_RADIX_FLOATING_POINT_H_
+#define FORTRAN_COMMON_BIG_RADIX_FLOATING_POINT_H_
 
 // This is a helper class for use in floating-point conversions between
 // binary and decimal representations.  It holds a multiple-precision
@@ -21,11 +21,11 @@
 // for conversions between binary and decimal representations; it is not
 // a general-purpose facility.
 
+#include "flang/Common/binary-floating-point.h"
 #include "flang/Common/bit-population-count.h"
+#include "flang/Common/decimal.h"
 #include "flang/Common/leading-zero-bit-count.h"
 #include "flang/Common/uint128.h"
-#include "flang/Decimal/binary-floating-point.h"
-#include "flang/Decimal/decimal.h"
 #include <cinttypes>
 #include <limits>
 #include <type_traits>
@@ -393,4 +393,4 @@ private:
   enum FortranRounding rounding_ { RoundNearest };
 };
 } // namespace Fortran::decimal
-#endif
+#endif /* FORTRAN_COMMON_BIG_RADIX_FLOATING_POINT_H_ */

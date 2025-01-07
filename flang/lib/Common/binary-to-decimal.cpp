@@ -1,4 +1,4 @@
-//===-- lib/Decimal/binary-to-decimal.cpp ---------------------------------===//
+//===-- lib/Common/binary-to-decimal.cpp ------------------------*- C++ -*-===//
 //
 // Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.
 // See https://llvm.org/LICENSE.txt for license information.
@@ -7,7 +7,7 @@
 //===----------------------------------------------------------------------===//
 
 #include "big-radix-floating-point.h"
-#include "flang/Decimal/decimal.h"
+#include "flang/Common/decimal.h"
 #include <cassert>
 #include <cfloat>
 #include <string>
