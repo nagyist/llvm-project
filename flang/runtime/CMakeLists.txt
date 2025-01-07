@@ -1,4 +1,4 @@
-#===-- lib/flang_rt/CMakeLists.txt -----------------------------------------===#
+#===-- runtime/CMakeLists.txt ----------------------------------------------===#
 #
 # Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.
 # See https://llvm.org/LICENSE.txt for license information.
@@ -15,7 +15,7 @@ if (CMAKE_SOURCE_DIR STREQUAL CMAKE_CURRENT_SOURCE_DIR)
   set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
   set(CMAKE_CXX_EXTENSIONS OFF)
 
-  set(FLANG_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../flang")
+  set(FLANG_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/..")
 
   set(LLVM_COMMON_CMAKE_UTILS "${FLANG_SOURCE_DIR}/../cmake")
   set(LLVM_CMAKE_UTILS "${FLANG_SOURCE_DIR}/../llvm/cmake")
@@ -59,8 +59,6 @@ if (CMAKE_SOURCE_DIR STREQUAL CMAKE_CURRENT_SOURCE_DIR)
     )
 endif()
 
-include_directories(BEFORE ../../include)
-
 # function checks
 find_package(Backtrace)
 set(HAVE_BACKTRACE ${Backtrace_FOUND})
@@ -96,11 +94,12 @@ else()
   set(NO_LTO_FLAGS "")
 endif()
 
-configure_file(../../cmake/config.h.cmake.in config.h)
+configure_file("${FLANG_RT_SOURCE_DIR}/cmake/config.h.cmake.in" config.h)
 # include_directories is used here instead of target_include_directories
 # because add_flang_library creates multiple objects (STATIC/SHARED, OBJECT)
 # with different names
 include_directories(AFTER ${CMAKE_CURRENT_BINARY_DIR})
+include_directories("${FLANG_RT_SOURCE_DIR}/include")
 
 append(${NO_LTO_FLAGS} CMAKE_C_FLAGS)
 append(${NO_LTO_FLAGS} CMAKE_CXX_FLAGS)
@@ -110,7 +109,7 @@ append(${NO_LTO_FLAGS} CMAKE_CXX_FLAGS)
 add_definitions(-U_GLIBCXX_ASSERTIONS)
 add_definitions(-U_LIBCPP_ENABLE_ASSERTIONS)
 
-add_subdirectory(../FortranFloat128Math Float128Math)
+add_subdirectory(Float128Math)
 
 set(sources
   ISO_Fortran_binding.cpp
@@ -268,6 +267,15 @@ if (NOT TARGET FortranFloat128Math)
     list(APPEND sources ${f128_sources})
   endif()
 endif()
+
+# Relative paths are relative to Flang-RT's source dir.
+set(new_sources "")
+foreach (source IN LISTS sources)
+  set(new_source "${FLANG_RT_SOURCE_DIR}/lib/flang_rt")
+  cmake_path(APPEND new_source "${source}")
+  list(APPEND new_sources "${new_source}")
+endforeach ()
+set(sources ${new_sources})
 
 if (NOT DEFINED MSVC)
   add_flang_library(FortranRuntime
