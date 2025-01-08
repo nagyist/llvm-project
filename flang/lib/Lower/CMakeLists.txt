@@ -56,7 +56,7 @@ add_flang_library(FortranLower
   HLFIRDialect
   ${dialect_libs}
   ${extension_libs}
-  FortranSupport
+  FortranCommon
   FortranSupport
   FortranParser
   FortranEvaluate

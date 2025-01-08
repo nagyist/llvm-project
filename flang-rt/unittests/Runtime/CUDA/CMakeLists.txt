@@ -8,7 +8,6 @@
 
 add_flangrt_unittest(FlangCufRuntimeTests
   Allocatable.cpp
-  Allocatable.cpp
   AllocatorCUF.cpp
   Memory.cpp
 )
@@ -23,7 +22,7 @@ target_link_libraries(FlangCufRuntimeTests
   PRIVATE
   ${CUDA_RT_TARGET}
   CufRuntime_cuda_${CUDAToolkit_VERSION_MAJOR}
-  flang_rt
+  flang_rt.unittest
 )
 
 target_include_directories(FlangCufRuntimeTests PRIVATE ${CUDAToolkit_INCLUDE_DIRS})
