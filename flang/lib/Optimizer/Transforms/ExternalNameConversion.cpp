@@ -11,6 +11,7 @@
 #include "flang/Optimizer/Dialect/FIROpsSupport.h"
 #include "flang/Optimizer/Support/InternalNames.h"
 #include "flang/Optimizer/Transforms/Passes.h"
+#include "flang/Support/Fortran.h"
 #include "mlir/Dialect/GPU/IR/GPUDialect.h"
 #include "flang/Support/Fortran.h"
 #include "mlir/IR/Attributes.h"

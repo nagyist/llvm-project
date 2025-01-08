@@ -43,15 +43,15 @@ add_flang_nongtest_unittest(integer
 add_flang_nongtest_unittest(intrinsics
   FortranCommon
   FortranSupport
-  FortranEvaluate
   FortranEvaluateTesting
+  FortranEvaluate
   FortranSemantics
   FortranParser
 )
 
 add_flang_nongtest_unittest(logical
-  FortranEvaluate
   FortranEvaluateTesting
+  FortranEvaluate
   FortranSemantics
 )
 
@@ -62,9 +62,8 @@ add_flang_nongtest_unittest(logical
 set(LLVM_REQUIRES_EH ON)
 set(LLVM_REQUIRES_RTTI ON)
 add_flang_nongtest_unittest(real
-  FortranSupport
-  FortranEvaluate
   FortranEvaluateTesting
+  FortranEvaluate
   FortranSemantics
 )
 llvm_update_compile_flags(real.test)
@@ -72,7 +71,7 @@ llvm_update_compile_flags(real.test)
 add_flang_nongtest_unittest(folding
   FortranCommon
   FortranSupport
-  FortranEvaluate
   FortranEvaluateTesting
+  FortranEvaluate
   FortranSemantics
 )

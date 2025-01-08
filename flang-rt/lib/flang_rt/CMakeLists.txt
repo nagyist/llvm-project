@@ -15,6 +15,8 @@ set(BACKTRACE_HEADER ${Backtrace_HEADER})
 
 # List of files that are buildable for all devices.
 set(supported_sources
+  ${FLANG_SOURCE_DIR}/lib/Common/binary-to-decimal.cpp
+  ${FLANG_SOURCE_DIR}/lib/Common/decimal-to-binary.cpp
   ISO_Fortran_binding.cpp
   allocator-registry.cpp
   allocatable.cpp
