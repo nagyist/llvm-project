@@ -88,6 +88,7 @@ set(LLVM_TOOLS_DIR "${LLVM_BINARY_DIR}/bin")
 # Determine build and install paths.
 # The build path is absolute, but the install dir is relative, CMake's install
 # command has to apply CMAKE_INSTALL_PREFIX itself.
+get_toolchain_library_subdir(toolchain_lib_subdir)
 if (LLVM_TREE_AVAILABLE)
   # In a bootstrap build emit the libraries into a default search path in the
   # build directory of the just-built compiler. This allows using the
@@ -98,6 +99,8 @@ if (LLVM_TREE_AVAILABLE)
   include(GetClangResourceDir)
   get_clang_resource_dir(FLANG_RT_OUTPUT_RESOURCE_DIR PREFIX "${LLVM_LIBRARY_OUTPUT_INTDIR}/..")
   get_clang_resource_dir(FLANG_RT_INSTALL_RESOURCE_PATH)
+
+  extend_path(FLANG_RT_OUTPUT_RESOURCE_LIB_DIR "${FLANG_RT_OUTPUT_RESOURCE_DIR}" "${toolchain_lib_subdir}")
 else ()
   # In a standalone runtimes build, do not write into LLVM_BINARY_DIR. It may be
   # read-only and/or shared by multiple runtimes with different build
@@ -108,14 +111,12 @@ else ()
   # between bootstrap and standalone runtimes builds.
   set(FLANG_RT_OUTPUT_RESOURCE_DIR "${CMAKE_CURRENT_BINARY_DIR}")
   set(FLANG_RT_INSTALL_RESOURCE_PATH "${CMAKE_INSTALL_LIBDIR}/clang/${LLVM_VERSION_MAJOR}")
+
+  extend_path(FLANG_RT_OUTPUT_RESOURCE_LIB_DIR "${FLANG_RT_OUTPUT_RESOURCE_DIR}" "${CMAKE_INSTALL_LIBDIR}")
 endif ()
+extend_path(FLANG_RT_INSTALL_RESOURCE_LIB_PATH "${FLANG_RT_INSTALL_RESOURCE_PATH}" "${toolchain_lib_subdir}")
 cmake_path(NORMAL_PATH FLANG_RT_OUTPUT_RESOURCE_DIR)
 cmake_path(NORMAL_PATH FLANG_RT_INSTALL_RESOURCE_PATH)
-
-# Determine subdirectories for build output and install destinations.
-get_toolchain_library_subdir(toolchain_lib_subdir)
-extend_path(FLANG_RT_OUTPUT_RESOURCE_LIB_DIR "${FLANG_RT_OUTPUT_RESOURCE_DIR}" "${toolchain_lib_subdir}")
-extend_path(FLANG_RT_INSTALL_RESOURCE_LIB_PATH "${FLANG_RT_INSTALL_RESOURCE_PATH}" "${toolchain_lib_subdir}")
 cmake_path(NORMAL_PATH FLANG_RT_OUTPUT_RESOURCE_LIB_DIR)
 cmake_path(NORMAL_PATH FLANG_RT_INSTALL_RESOURCE_LIB_PATH)
 
