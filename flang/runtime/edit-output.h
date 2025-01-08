@@ -20,8 +20,8 @@
 
 #include "format.h"
 #include "io-stmt.h"
-#include "flang/Common/uint128.h"
 #include "flang/Common/decimal.h"
+#include "flang/Common/uint128.h"
 
 namespace Fortran::runtime::io {
 

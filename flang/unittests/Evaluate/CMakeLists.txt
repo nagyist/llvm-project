@@ -63,6 +63,7 @@ set(LLVM_REQUIRES_RTTI ON)
 add_flang_nongtest_unittest(real
   FortranEvaluateTesting
   FortranEvaluate
+  FortranCommon
   FortranSemantics
 )
 llvm_update_compile_flags(real.test)
