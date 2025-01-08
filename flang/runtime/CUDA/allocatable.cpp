@@ -14,6 +14,7 @@
 #include "flang/Runtime/CUDA/descriptor.h"
 #include "flang/Runtime/CUDA/memmove-function.h"
 #include "flang/Runtime/allocatable.h"
+#include "flang/Runtime/descriptor.h"
 
 #include "cuda_runtime.h"
 
