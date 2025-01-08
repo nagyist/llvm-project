@@ -8,12 +8,6 @@
 
 macro(enable_cuda_compilation name files)
   if (FLANG_RT_EXPERIMENTAL_OFFLOAD_SUPPORT STREQUAL "CUDA")
-    if (BUILD_SHARED_LIBS)
-      message(FATAL_ERROR
-        "BUILD_SHARED_LIBS is not supported for CUDA build of Fortran runtime"
-        )
-    endif()
-
     enable_language(CUDA)
 
     # TODO: figure out how to make target property CUDA_SEPARABLE_COMPILATION
@@ -69,12 +63,6 @@ endmacro()
 macro(enable_omp_offload_compilation name files)
   if (FLANG_RT_EXPERIMENTAL_OFFLOAD_SUPPORT STREQUAL "OpenMP")
     # OpenMP offload build only works with Clang compiler currently.
-
-    if (BUILD_SHARED_LIBS)
-      message(FATAL_ERROR
-        "BUILD_SHARED_LIBS is not supported for OpenMP offload build of Fortran runtime"
-        )
-    endif()
 
     if ("${CMAKE_CXX_COMPILER_ID}" MATCHES "Clang" AND
         "${CMAKE_C_COMPILER_ID}" MATCHES "Clang")
