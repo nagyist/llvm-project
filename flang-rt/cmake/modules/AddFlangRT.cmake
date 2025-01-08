@@ -138,6 +138,21 @@ function (add_flangrt_library name)
     add_library("${name_shared}" SHARED ${extra_args} ${ARG_ADDITIONAL_HEADERS} ${ARG_UNPARSED_ARGUMENTS})
   endif ()
 
+  # Provide a default target if building both and which exists in either setting.
+  if (BUILD_SHARED_LIBS)
+    if (build_shared)
+      add_library(${name}.default ALIAS ${name_shared})
+    else ()
+      add_library(${name}.default ALIAS ${name})
+    endif ()
+  else ()
+    if (build_static)
+      add_library(${name}.default ALIAS ${name_static})
+    else ()
+      add_library(${name}.default ALIAS ${name})
+    endif ()
+  endif ()
+
   foreach (tgtname IN LISTS libtargets)
     if (NOT WIN32)
       # Use same stem name for .a and .so. Common in UNIX environments.

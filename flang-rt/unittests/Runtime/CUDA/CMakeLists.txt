@@ -12,17 +12,7 @@ add_flangrt_unittest(FlangCufRuntimeTests
   Memory.cpp
 )
 
-if (BUILD_SHARED_LIBS)
-  set(CUDA_RT_TARGET CUDA::cudart)
-else()
-  set(CUDA_RT_TARGET CUDA::cudart_static)
-endif()
-
 target_link_libraries(FlangCufRuntimeTests
   PRIVATE
-  ${CUDA_RT_TARGET}
-  CufRuntime_cuda_${CUDAToolkit_VERSION_MAJOR}
-  flang_rt.unittest
+  CufRuntime
 )
-
-target_include_directories(FlangCufRuntimeTests PRIVATE ${CUDAToolkit_INCLUDE_DIRS})

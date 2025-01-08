@@ -8,9 +8,9 @@
 
 macro(enable_cuda_compilation name files)
   if (FLANG_RT_EXPERIMENTAL_OFFLOAD_SUPPORT STREQUAL "CUDA")
-    if (FLANG_RT_ENABLE_SHARED)
+    if (NOT FLANG_RT_ENABLE_STATIC)
       message(FATAL_ERROR
-        "FLANG_RT_ENABLE_SHARED is not supported for CUDA build of Flang-RT"
+        "FLANG_RT_ENABLE_STATIC is required for CUDA build of Flang-RT"
         )
     endif()
 
