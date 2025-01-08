@@ -27,6 +27,7 @@ add_flang_nongtest_unittest(uint128
 
 add_flang_nongtest_unittest(expression
   FortranCommon
+  FortranSupport
   FortranEvaluateTesting
   FortranEvaluate
   FortranSemantics
@@ -41,11 +42,12 @@ add_flang_nongtest_unittest(integer
 
 add_flang_nongtest_unittest(intrinsics
   FortranCommon
+  FortranSupport
   FortranEvaluateTesting
   FortranEvaluate
   FortranSemantics
   FortranParser
-  FortranRuntime
+  flang_rt
 )
 
 add_flang_nongtest_unittest(logical
@@ -71,18 +73,19 @@ add_flang_nongtest_unittest(reshape
   FortranEvaluateTesting
   FortranSemantics
   FortranEvaluate
-  FortranRuntime
+  flang_rt
 )
 
 add_flang_nongtest_unittest(ISO-Fortran-binding
   FortranEvaluateTesting
   FortranEvaluate
   FortranSemantics
-  FortranRuntime
+  flang_rt
 )
 
 add_flang_nongtest_unittest(folding
   FortranCommon
+  FortranSupport
   FortranEvaluateTesting
   FortranEvaluate
   FortranSemantics
