@@ -18,10 +18,10 @@
 // User C code is welcome to depend on that ISO_Fortran_binding.h file,
 // but should never reference this internal header.
 
+#include "flang-rt/memory.h"
+#include "flang-rt/type-code.h"
 #include "flang/Common/ISO_Fortran_binding_wrapper.h"
 #include "flang/Runtime/descriptor-consts.h"
-#include "flang/Runtime/memory.h"
-#include "flang/Runtime/type-code.h"
 #include <algorithm>
 #include <cassert>
 #include <cinttypes>
