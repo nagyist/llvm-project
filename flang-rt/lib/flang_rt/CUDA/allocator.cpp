@@ -15,6 +15,7 @@
 #include "flang/Common/ISO_Fortran_binding_wrapper.h"
 #include "flang/Runtime/CUDA/common.h"
 #include "flang/Support/Fortran.h"
+#include "flang/Support/Fortran.h"
 
 #include "cuda_runtime.h"
 

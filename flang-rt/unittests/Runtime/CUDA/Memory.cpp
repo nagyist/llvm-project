@@ -16,6 +16,7 @@
 #include "flang/Runtime/CUDA/descriptor.h"
 #include "flang/Runtime/allocatable.h"
 #include "flang/Support/Fortran.h"
+#include "flang/Support/Fortran.h"
 
 #include "cuda_runtime.h"
 
