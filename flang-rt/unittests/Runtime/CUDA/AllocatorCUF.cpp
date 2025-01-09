@@ -6,8 +6,8 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "../../../lib/flang_rt/terminator.h"
 #include "cuda_runtime.h"
+#include "../../../lib/flang_rt/terminator.h"
 #include "gtest/gtest.h"
 #include "flang-rt/CUDA/allocator.h"
 #include "flang-rt/allocator-registry.h"

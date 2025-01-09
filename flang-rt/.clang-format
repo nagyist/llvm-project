@@ -12,13 +12,13 @@ IncludeCategories:
     Priority:        6
   - Regex:           '^"(llvm|llvm-c|clang|clang-c)/'
     Priority:        5
-  - Regex:           '^"flang/'                               # Headers shared with Flang
+  - Regex:           '^"flang/'     # Headers shared with Flang
     Priority:        4
-  - Regex:           '^"flang-rt/'                            # Public Flang-RT headers
+  - Regex:           '^"flang-rt/'  # Public Flang-RT headers
     Priority:        3
-  - Regex:           '^[^/]$'                                 # Private header from same library
+  - Regex:           '^[^/]*$'      # Private header from same library
     Priority:        1
-  - Regex:           '.*'                                     # Private headers from sibling libraries
+  - Regex:           '.*'           # Private headers from sibling libraries
     Priority:        2
 ...
 

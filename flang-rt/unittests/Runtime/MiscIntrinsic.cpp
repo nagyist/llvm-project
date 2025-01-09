@@ -6,8 +6,8 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "gtest/gtest.h"
 #include "tools.h"
+#include "gtest/gtest.h"
 #include "flang-rt/descriptor.h"
 #include "flang/Runtime/allocatable.h"
 #include "flang/Runtime/cpp-type.h"

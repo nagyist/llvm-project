@@ -7,8 +7,8 @@
 //===----------------------------------------------------------------------===//
 
 #include "flang/Runtime/reduction.h"
-#include "gtest/gtest.h"
 #include "tools.h"
+#include "gtest/gtest.h"
 #include "flang-rt/descriptor.h"
 #include "flang-rt/type-code.h"
 #include "flang/Common/float128.h"
