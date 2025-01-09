@@ -11,7 +11,6 @@ add_flang_library(flangPasses
   FlangOpenMPTransforms
   ${dialect_libs}
   ${extension_libs}
-  FortranCommon
   FortranSupport
   HLFIRTransforms
   MLIRPass
