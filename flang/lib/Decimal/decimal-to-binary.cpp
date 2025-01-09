@@ -1,4 +1,4 @@
-//===-- lib/Common/decimal-to-binary.cpp ------------------------*- C++ -*-===//
+//===-- lib/Decimal/decimal-to-binary.cpp ---------------------------------===//
 //
 // Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.
 // See https://llvm.org/LICENSE.txt for license information.
@@ -7,10 +7,10 @@
 //===----------------------------------------------------------------------===//
 
 #include "big-radix-floating-point.h"
-#include "flang/Common/binary-floating-point.h"
 #include "flang/Common/bit-population-count.h"
-#include "flang/Common/decimal.h"
 #include "flang/Common/leading-zero-bit-count.h"
+#include "flang/Decimal/binary-floating-point.h"
+#include "flang/Decimal/decimal.h"
 #include "flang/Runtime/freestanding-tools.h"
 #include <cinttypes>
 #include <cstring>

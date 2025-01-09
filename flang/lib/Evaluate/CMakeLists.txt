@@ -62,6 +62,7 @@ add_flang_library(FortranEvaluate
   LINK_LIBS
   FortranCommon
   FortranSupport
+  FortranDecimal
   FortranParser
   ${LIBPGMATH}
   ${QUADMATHLIB}
