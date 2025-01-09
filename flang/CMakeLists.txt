@@ -234,7 +234,6 @@ else()
 endif()
 
 option(FLANG_INCLUDE_RUNTIME "Build the runtime in-tree (deprecated; to be replaced with LLVM_ENABLE_RUNTIMES=flang-rt)" ON)
-pythonize_bool(FLANG_INCLUDE_RUNTIME)
 
 set(FLANG_TOOLS_INSTALL_DIR "${CMAKE_INSTALL_BINDIR}" CACHE PATH
     "Path for binary subdirectory (defaults to '${CMAKE_INSTALL_BINDIR}')")
