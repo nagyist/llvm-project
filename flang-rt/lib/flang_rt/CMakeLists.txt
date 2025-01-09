@@ -137,16 +137,10 @@ if (NOT WIN32)
   enable_cuda_compilation(flang_rt.static "${supported_sources}")
   enable_omp_offload_compilation(flang_rt.static "${supported_sources}")
 
-  # Select a default runtime, which is used for unittests.
-  if (TARGET flang_rt.shared AND BUILD_SHARED_LIBS)
-    set(default_flang_rt "flang_rt.shared")
-  elseif (TARGET flang_rt.static)
-    set(default_flang_rt "flang_rt.static")
-  else ()
-    set(default_flang_rt "flang_rt.shared")
-  endif ()
-  add_library(flang_rt ALIAS "${default_flang_rt}")
-  add_library(flang_rt.unittest ALIAS "${default_flang_rt}")
+  # Select a default runtime, which is used for unit and regression tests.
+  get_target_property(default_target flang_rt.default ALIASED_TARGET)
+  add_library(flang_rt ALIAS "${default_target}")
+  add_library(flang_rt.unittest ALIAS "${default_target}")
 else()
   # Target for building all versions of the runtime
   add_custom_target(flang_rt)
