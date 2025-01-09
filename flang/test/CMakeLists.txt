@@ -71,7 +71,7 @@ set(FLANG_TEST_DEPENDS
   llvm-objdump
   llvm-readobj
   split-file
-  FortranRuntime
+  flang_rt
   FortranDecimal
 )
 if (LLVM_ENABLE_PLUGINS AND NOT WIN32)
@@ -120,3 +120,7 @@ if (DEFINED FLANG_TEST_TARGET_TRIPLE)
                         "to use FLANG_TEST_TARGET_TRIPLE.")
   endif()
 endif()
+
+# Compatibility targets.
+add_custom_target(check-flang-rt)
+add_dependencies(check-flang-rt check-flang)
