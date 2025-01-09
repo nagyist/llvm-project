@@ -126,5 +126,7 @@ if (DEFINED FLANG_TEST_TARGET_TRIPLE)
 endif()
 
 # Compatibility targets.
-add_custom_target(check-flang-rt)
-add_dependencies(check-flang-rt check-flang)
+if (FLANG_INCLUDE_RUNTIME)
+  add_custom_target(check-flang-rt)
+  add_dependencies(check-flang-rt check-flang)
+endif ()
