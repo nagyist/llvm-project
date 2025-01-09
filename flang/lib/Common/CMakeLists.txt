@@ -35,8 +35,6 @@ if(FLANG_VENDOR)
 endif()
 
 add_flang_library(FortranCommon
-  binary-to-decimal.cpp
-  decimal-to-binary.cpp
   Fortran.cpp
   Fortran-features.cpp
   default-kinds.cpp

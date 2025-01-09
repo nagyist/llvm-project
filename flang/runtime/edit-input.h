@@ -11,7 +11,7 @@
 
 #include "format.h"
 #include "io-stmt.h"
-#include "flang/Common/decimal.h"
+#include "flang/Decimal/decimal.h"
 
 namespace Fortran::runtime::io {
 

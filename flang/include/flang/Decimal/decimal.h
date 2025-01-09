@@ -1,15 +1,16 @@
-/*===-- include/flang/Common/decimal.h ------------------------------*- C -*-===
+/*===-- include/flang/Decimal/decimal.h ---------------------------*- C++ -*-===
  *
  * Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.
  * See https://llvm.org/LICENSE.txt for license information.
  * SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
  *
- *===----------------------------------------------------------------------===*/
+ * ===-----------------------------------------------------------------------===
+ */
 
 /* C and C++ API for binary-to/from-decimal conversion package. */
 
-#ifndef FORTRAN_COMMON_DECIMAL_H_
-#define FORTRAN_COMMON_DECIMAL_H_
+#ifndef FORTRAN_DECIMAL_DECIMAL_H_
+#define FORTRAN_DECIMAL_DECIMAL_H_
 
 #include "flang/Common/api-attrs.h"
 #include <stddef.h>
@@ -136,4 +137,4 @@ RT_API_ATTRS enum NS(ConversionResultFlags) ConvertDecimalToLongDouble(
 #ifdef __cplusplus
 } // extern "C"
 #endif
-#endif /* FORTRAN_COMMON_DECIMAL_H_ */
+#endif
