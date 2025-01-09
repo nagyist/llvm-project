@@ -1,6 +1,6 @@
-#include "flang/Testing/testing.h"
 #include "flang/Runtime/descriptor.h"
 #include "flang/Runtime/transformational.h"
+#include "flang/Testing/testing.h"
 #include <cinttypes>
 
 using namespace Fortran::common;
