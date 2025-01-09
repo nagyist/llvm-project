@@ -37,8 +37,8 @@ page](https://llvm.org/releases/).
 ## Build System Changes
 
  * The Fortran Runtime library has been move to a new top-level directory
-   named "flang-rt". The library was also renamed from `libFortranRuntime.a` to
-   `libflang_rt.a`. It now supports the
+   named "flang-rt". The library was also renamed from `FortranRuntime` to
+   `flang_rt`. It now supports the
    LLVM_ENABLE_RUNTIMES mechanism to build flang-rt for multiple target
    triples. libflang_rt.a will now be emitted into Clang's per-target
    resource directory (next to libclang_rt.*.*) where it is also found by

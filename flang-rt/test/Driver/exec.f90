@@ -1,3 +1,4 @@
+! REQUIRES: flang-rt
 ! Verify that flang can correctly build executables.
 
 ! RUN: %flang -L"%libdir" %s %deplibs -o %t

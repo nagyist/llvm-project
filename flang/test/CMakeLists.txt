@@ -73,6 +73,11 @@ set(FLANG_TEST_DEPENDS
   split-file
   FortranDecimal
 )
+
+if (FLANG_INCLUDE_RUNTIME)
+  list(APPEND FLANG_TEST_DEPENDS flang_rt)
+endif ()
+
 if (LLVM_ENABLE_PLUGINS AND NOT WIN32)
   list(APPEND FLANG_TEST_DEPENDS Bye)
 endif()
@@ -119,3 +124,7 @@ if (DEFINED FLANG_TEST_TARGET_TRIPLE)
                         "to use FLANG_TEST_TARGET_TRIPLE.")
   endif()
 endif()
+
+# Compatibility targets.
+add_custom_target(check-flang-rt)
+add_dependencies(check-flang-rt check-flang)

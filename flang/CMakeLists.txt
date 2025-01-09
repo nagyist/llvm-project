@@ -223,6 +223,9 @@ else()
   include_directories(SYSTEM ${MLIR_TABLEGEN_OUTPUT_DIR})
 endif()
 
+option(FLANG_INCLUDE_RUNTIME "Build the runtime in-tree (deprecated; to be replaced with LLVM_ENABLE_RUNTIMES=flang-rt)" ON)
+pythonize_bool(FLANG_INCLUDE_RUNTIME)
+
 set(FLANG_TOOLS_INSTALL_DIR "${CMAKE_INSTALL_BINDIR}" CACHE PATH
     "Path for binary subdirectory (defaults to '${CMAKE_INSTALL_BINDIR}')")
 mark_as_advanced(FLANG_TOOLS_INSTALL_DIR)
@@ -450,7 +453,9 @@ if (FLANG_CUF_RUNTIME)
   find_package(CUDAToolkit REQUIRED)
 endif()
 
-add_subdirectory(runtime)
+if (FLANG_INCLUDE_RUNTIME)
+  add_subdirectory(runtime)
+endif ()
 
 if (LLVM_INCLUDE_EXAMPLES)
   add_subdirectory(examples)
