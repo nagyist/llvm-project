@@ -26,7 +26,6 @@ add_flang_nongtest_unittest(uint128
 )
 
 add_flang_nongtest_unittest(expression
-  FortranCommon
   FortranSupport
   FortranEvaluateTesting
   FortranEvaluate
@@ -41,7 +40,6 @@ add_flang_nongtest_unittest(integer
 )
 
 add_flang_nongtest_unittest(intrinsics
-  FortranCommon
   FortranSupport
   FortranEvaluateTesting
   FortranEvaluate
@@ -67,7 +65,6 @@ add_flang_nongtest_unittest(real
   FortranEvaluateTesting
   FortranEvaluate
   FortranDecimal
-  FortranSupport
   FortranSemantics
 )
 llvm_update_compile_flags(real.test)
@@ -87,7 +84,6 @@ add_flang_nongtest_unittest(ISO-Fortran-binding
 )
 
 add_flang_nongtest_unittest(folding
-  FortranCommon
   FortranSupport
   FortranEvaluateTesting
   FortranEvaluate

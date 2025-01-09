@@ -1,4 +1,3 @@
-add_subdirectory(Common)
 add_subdirectory(Support)
 add_subdirectory(Evaluate)
 add_subdirectory(Decimal)
