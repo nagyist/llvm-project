@@ -10,7 +10,7 @@ endif()
 add_custom_target(FlangUnitTests)
 set_target_properties(FlangUnitTests PROPERTIES FOLDER "Flang/Tests")
 
-include_directories("../../flang-rt/include")
+include_directories("${FLANG_RT_SOURCE_DIR}/include")
 
 function(add_flang_unittest_offload_properties target)
   # Set CUDA_RESOLVE_DEVICE_SYMBOLS.
@@ -56,6 +56,7 @@ function(add_flang_nongtest_unittest test_name)
       set(suffix .test)
   endif()
 
+  # Sources for runtime tests are in Flang-RT.
   set(test_filepath "${FLANG_RT_SOURCE_DIR}/unittests/Evaluate/${test_name}.cpp")
   if (NOT EXISTS "${test_filepath}")
     set(test_filepath "${test_name}.cpp")

@@ -7,10 +7,10 @@
 //===----------------------------------------------------------------------===//
 
 #include "copy.h"
-#include "flang-rt/descriptor.h"
 #include "stack.h"
 #include "terminator.h"
 #include "type-info.h"
+#include "flang-rt/descriptor.h"
 #include "flang/Runtime/allocatable.h"
 #include <cstring>
 

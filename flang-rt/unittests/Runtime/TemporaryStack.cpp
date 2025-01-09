@@ -6,10 +6,10 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "flang-rt/descriptor.h"
-#include "flang-rt/type-code.h"
 #include "gtest/gtest.h"
 #include "tools.h"
+#include "flang-rt/descriptor.h"
+#include "flang-rt/type-code.h"
 #include "flang/Common/ISO_Fortran_binding_wrapper.h"
 #include "flang/Runtime/allocatable.h"
 #include "flang/Runtime/cpp-type.h"

@@ -9,9 +9,9 @@
 #ifndef FLANG_RT_RANDOM_TEMPLATES_H_
 #define FLANG_RT_RANDOM_TEMPLATES_H_
 
-#include "flang-rt/descriptor.h"
 #include "lock.h"
 #include "numeric-templates.h"
+#include "flang-rt/descriptor.h"
 #include "flang/Common/optional.h"
 #include <algorithm>
 #include <random>

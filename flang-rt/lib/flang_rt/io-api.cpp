@@ -18,14 +18,14 @@
 #include "edit-input.h"
 #include "edit-output.h"
 #include "environment.h"
-#include "flang-rt/descriptor.h"
-#include "flang-rt/memory.h"
 #include "format.h"
 #include "io-api-common.h"
 #include "io-stmt.h"
 #include "terminator.h"
 #include "tools.h"
 #include "unit.h"
+#include "flang-rt/descriptor.h"
+#include "flang-rt/memory.h"
 #include "flang/Common/optional.h"
 #include <cstdlib>
 #include <memory>

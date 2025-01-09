@@ -8,10 +8,10 @@
 
 #include "flang/Runtime/command.h"
 #include "environment.h"
-#include "flang-rt/descriptor.h"
 #include "stat.h"
 #include "terminator.h"
 #include "tools.h"
+#include "flang-rt/descriptor.h"
 #include <cstdlib>
 #include <limits>
 

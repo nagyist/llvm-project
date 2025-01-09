@@ -13,7 +13,6 @@
 #include "flang/Optimizer/Transforms/Passes.h"
 #include "flang/Support/Fortran.h"
 #include "mlir/Dialect/GPU/IR/GPUDialect.h"
-#include "flang/Support/Fortran.h"
 #include "mlir/IR/Attributes.h"
 #include "mlir/IR/SymbolTable.h"
 #include "mlir/Pass/Pass.h"

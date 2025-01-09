@@ -15,12 +15,12 @@
 #include "connection.h"
 #include "environment.h"
 #include "file.h"
-#include "flang-rt/memory.h"
 #include "format.h"
 #include "io-error.h"
 #include "io-stmt.h"
 #include "lock.h"
 #include "terminator.h"
+#include "flang-rt/memory.h"
 #include "flang/Common/constexpr-bitset.h"
 #include "flang/Common/optional.h"
 #include <cstdlib>

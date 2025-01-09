@@ -1,4 +1,4 @@
-//===-- flang/unittests/Runtime/Memory.cpp -----------------------*- C++-*-===//
+//===-- unittests/Runtime/CUDA/Memory.cpp -----------------------*- C++ -*-===//
 //
 // Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.
 // See https://llvm.org/LICENSE.txt for license information.
@@ -7,15 +7,14 @@
 //===----------------------------------------------------------------------===//
 
 #include "flang/Runtime/CUDA/memory.h"
-#include "flang-rt/CUDA/allocator.h"
-#include "flang-rt/allocator-registry.h"
-#include "gtest/gtest.h"
 #include "../../../lib/flang_rt/terminator.h"
 #include "../tools.h"
+#include "gtest/gtest.h"
+#include "flang-rt/CUDA/allocator.h"
+#include "flang-rt/allocator-registry.h"
 #include "flang/Runtime/CUDA/common.h"
 #include "flang/Runtime/CUDA/descriptor.h"
 #include "flang/Runtime/allocatable.h"
-#include "flang/Support/Fortran.h"
 #include "flang/Support/Fortran.h"
 
 #include "cuda_runtime.h"

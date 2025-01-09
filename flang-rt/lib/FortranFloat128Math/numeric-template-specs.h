@@ -9,8 +9,8 @@
 #ifndef FLANG_RT_FORTRANFLOAT128MATH_NUMERIC_TEMPLATE_SPECS_H_
 #define FLANG_RT_FORTRANFLOAT128MATH_NUMERIC_TEMPLATE_SPECS_H_
 
+#include "../flang_rt/numeric-templates.h"
 #include "math-entries.h"
-#include "numeric-templates.h"
 
 namespace Fortran::runtime {
 using F128Type = CppTypeFor<TypeCategory::Real, 16>;

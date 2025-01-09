@@ -11,8 +11,8 @@
 //===----------------------------------------------------------------------===//
 
 #include "CrashHandlerFixture.h"
-#include "flang-rt/descriptor.h"
 #include "gtest/gtest.h"
+#include "flang-rt/descriptor.h"
 #include "flang/Runtime/io-api-consts.h"
 #include "flang/Runtime/main.h"
 #include "flang/Runtime/stop.h"

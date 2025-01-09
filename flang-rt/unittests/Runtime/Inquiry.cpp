@@ -7,9 +7,9 @@
 //===----------------------------------------------------------------------===//
 
 #include "flang/Runtime/inquiry.h"
-#include "flang-rt/type-code.h"
 #include "gtest/gtest.h"
 #include "tools.h"
+#include "flang-rt/type-code.h"
 
 using namespace Fortran::runtime;
 using Fortran::common::TypeCategory;

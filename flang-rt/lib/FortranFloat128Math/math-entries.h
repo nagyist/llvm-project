@@ -8,8 +8,9 @@
 
 #ifndef FLANG_RT_FORTRANFLOAT128MATH_MATH_ENTRIES_H_
 #define FLANG_RT_FORTRANFLOAT128MATH_MATH_ENTRIES_H_
-#include "terminator.h"
-#include "tools.h"
+
+#include "../flang_rt/terminator.h"
+#include "../flang_rt/tools.h"
 #include "flang/Common/float128.h"
 #include "flang/Runtime/entry-names.h"
 #include <cfloat>

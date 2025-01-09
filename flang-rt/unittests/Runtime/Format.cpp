@@ -6,10 +6,10 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "CrashHandlerFixture.h"
 #include "../../lib/flang_rt/connection.h"
 #include "../../lib/flang_rt/format-implementation.h"
 #include "../../lib/flang_rt/io-error.h"
+#include "CrashHandlerFixture.h"
 #include <optional>
 #include <string>
 #include <tuple>

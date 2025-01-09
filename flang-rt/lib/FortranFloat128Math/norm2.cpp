@@ -6,9 +6,9 @@
 //
 //===----------------------------------------------------------------------===//
 
+#include "../flang_rt/reduction-templates.h"
 #include "math-entries.h"
 #include "numeric-template-specs.h"
-#include "reduction-templates.h"
 
 namespace Fortran::runtime {
 extern "C" {

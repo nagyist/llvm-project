@@ -9,13 +9,17 @@ AlignOperands: false
 AlignTrailingComments: false
 IncludeCategories:
   - Regex:           '^<'
-    Priority:        4
+    Priority:        6
   - Regex:           '^"(llvm|llvm-c|clang|clang-c)/'
+    Priority:        5
+  - Regex:           '^"flang/'                               # Headers shared with Flang
+    Priority:        4
+  - Regex:           '^"flang-rt/'                            # Public Flang-RT headers
     Priority:        3
-  - Regex:           '^"(flang|\.\.)/'
-    Priority:        2
-  - Regex:           '.*'
+  - Regex:           '^[^/]$'                                 # Private header from same library
     Priority:        1
+  - Regex:           '.*'                                     # Private headers from sibling libraries
+    Priority:        2
 ...
 
 # vim:set filetype=yaml:

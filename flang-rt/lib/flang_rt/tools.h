@@ -9,10 +9,10 @@
 #ifndef FLANG_RT_TOOLS_H_
 #define FLANG_RT_TOOLS_H_
 
-#include "flang-rt/descriptor.h"
-#include "flang-rt/memory.h"
 #include "stat.h"
 #include "terminator.h"
+#include "flang-rt/descriptor.h"
+#include "flang-rt/memory.h"
 #include "flang/Common/optional.h"
 #include "flang/Runtime/cpp-type.h"
 #include "flang/Runtime/freestanding-tools.h"
