@@ -242,7 +242,6 @@ else ()
     message(STATUS "Not building Flang-RT. For a usable Fortran toolchain, compile a standalone Flang-RT")
   endif ()
 endif ()
-pythonize_bool(FLANG_INCLUDE_RUNTIME)
 
 set(FLANG_TOOLS_INSTALL_DIR "${CMAKE_INSTALL_BINDIR}" CACHE PATH
     "Path for binary subdirectory (defaults to '${CMAKE_INSTALL_BINDIR}')")

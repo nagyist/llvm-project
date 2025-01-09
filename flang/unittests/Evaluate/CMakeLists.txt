@@ -26,17 +26,14 @@ add_flang_nongtest_unittest(integer
   FortranSemantics
 )
 
-if (FLANG_INCLUDE_RUNTIME)
-  add_flang_nongtest_unittest(intrinsics
-    FortranSupport
-    NonGTestTesting
-    FortranEvaluate
-    FortranDecimal
-    FortranSemantics
-    FortranParser
-    flang_rt
-  )
-endif ()
+add_flang_nongtest_unittest(intrinsics
+  FortranSupport
+  NonGTestTesting
+  FortranEvaluate
+  FortranDecimal
+  FortranSemantics
+  FortranParser
+)
 
 add_flang_nongtest_unittest(logical
   NonGTestTesting
