@@ -26,15 +26,17 @@ add_flang_nongtest_unittest(integer
   FortranSemantics
 )
 
-add_flang_nongtest_unittest(intrinsics
-  FortranSupport
-  NonGTestTesting
-  FortranEvaluate
-  FortranDecimal
-  FortranSemantics
-  FortranParser
-  flang_rt
-)
+if (FLANG_INCLUDE_RUNTIME)
+  add_flang_nongtest_unittest(intrinsics
+    FortranSupport
+    NonGTestTesting
+    FortranEvaluate
+    FortranDecimal
+    FortranSemantics
+    FortranParser
+    flang_rt
+  )
+endif ()
 
 add_flang_nongtest_unittest(logical
   NonGTestTesting
@@ -56,19 +58,21 @@ add_flang_nongtest_unittest(real
 )
 llvm_update_compile_flags(real.test)
 
-add_flang_nongtest_unittest(reshape
-  NonGTestTesting
-  FortranSemantics
-  FortranEvaluate
-  flang_rt
-)
+if (FLANG_INCLUDE_RUNTIME)
+  add_flang_nongtest_unittest(reshape
+    NonGTestTesting
+    FortranSemantics
+    FortranEvaluate
+    flang_rt
+  )
 
-add_flang_nongtest_unittest(ISO-Fortran-binding
-  NonGTestTesting
-  FortranEvaluate
-  FortranSemantics
-  flang_rt
-)
+  add_flang_nongtest_unittest(ISO-Fortran-binding
+    NonGTestTesting
+    FortranEvaluate
+    FortranSemantics
+    flang_rt
+  )
+endif ()
 
 add_flang_nongtest_unittest(folding
   FortranSupport

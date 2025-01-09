@@ -71,9 +71,13 @@ set(FLANG_TEST_DEPENDS
   llvm-objdump
   llvm-readobj
   split-file
-  flang_rt
   FortranDecimal
 )
+
+if (FLANG_INCLUDE_RUNTIME)
+  list(APPEND FLANG_TEST_DEPENDS flang_rt)
+endif ()
+
 if (LLVM_ENABLE_PLUGINS AND NOT WIN32)
   list(APPEND FLANG_TEST_DEPENDS Bye)
 endif()
