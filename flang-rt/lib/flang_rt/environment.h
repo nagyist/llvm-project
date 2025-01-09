@@ -9,8 +9,8 @@
 #ifndef FLANG_RT_ENVIRONMENT_H_
 #define FLANG_RT_ENVIRONMENT_H_
 
-#include "flang/Common/decimal.h"
 #include "flang/Common/optional.h"
+#include "flang/Decimal/decimal.h"
 
 struct EnvironmentDefaultList;
 

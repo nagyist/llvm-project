@@ -15,8 +15,8 @@
 #include "format.h"
 #include "io-stmt.h"
 #include "memory.h"
-#include "flang/Common/decimal.h"
 #include "flang/Common/format.h"
+#include "flang/Decimal/decimal.h"
 #include "flang/Runtime/main.h"
 #include <algorithm>
 #include <cstring>
