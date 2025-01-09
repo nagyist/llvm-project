@@ -1,47 +1,34 @@
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
-add_library(FortranEvaluateTesting
-  ${FLANG_SOURCE_DIR}/lib/Testing/testing.cpp
-  ${FLANG_SOURCE_DIR}/lib/Testing/fp-testing.cpp
-)
-set_target_properties(FortranEvaluateTesting PROPERTIES FOLDER "Flang/Tests")
-if (LLVM_LINK_LLVM_DYLIB)
-  set(llvm_libs LLVM)
-else()
-  llvm_map_components_to_libnames(llvm_libs Support)
-endif()
-
-target_link_libraries(FortranEvaluateTesting
-  ${llvm_libs})
 
 add_flang_nongtest_unittest(leading-zero-bit-count
-  FortranEvaluateTesting
+  NonGTestTesting
 )
 
 add_flang_nongtest_unittest(bit-population-count
-  FortranEvaluateTesting
+  NonGTestTesting
 )
 
 add_flang_nongtest_unittest(uint128
-  FortranEvaluateTesting
+  NonGTestTesting
 )
 
 add_flang_nongtest_unittest(expression
   FortranSupport
-  FortranEvaluateTesting
+  NonGTestTesting
   FortranEvaluate
   FortranSemantics
   FortranParser
 )
 
 add_flang_nongtest_unittest(integer
-  FortranEvaluateTesting
+  NonGTestTesting
   FortranEvaluate
   FortranSemantics
 )
 
 add_flang_nongtest_unittest(intrinsics
   FortranSupport
-  FortranEvaluateTesting
+  NonGTestTesting
   FortranEvaluate
   FortranDecimal
   FortranSemantics
@@ -49,7 +36,7 @@ add_flang_nongtest_unittest(intrinsics
 )
 
 add_flang_nongtest_unittest(logical
-  FortranEvaluateTesting
+  NonGTestTesting
   FortranEvaluate
   FortranSemantics
 )
@@ -61,16 +48,30 @@ add_flang_nongtest_unittest(logical
 set(LLVM_REQUIRES_EH ON)
 set(LLVM_REQUIRES_RTTI ON)
 add_flang_nongtest_unittest(real
-  FortranEvaluateTesting
+  NonGTestTesting
   FortranEvaluate
   FortranDecimal
   FortranSemantics
 )
 llvm_update_compile_flags(real.test)
 
+add_flang_nongtest_unittest(reshape
+  NonGTestTesting
+  FortranSemantics
+  FortranEvaluate
+  FortranRuntime
+)
+
+add_flang_nongtest_unittest(ISO-Fortran-binding
+  NonGTestTesting
+  FortranEvaluate
+  FortranSemantics
+  FortranRuntime
+)
+
 add_flang_nongtest_unittest(folding
   FortranSupport
-  FortranEvaluateTesting
+  NonGTestTesting
   FortranEvaluate
   FortranSemantics
 )

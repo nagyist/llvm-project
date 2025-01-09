@@ -11,8 +11,8 @@
 #ifndef FLANG_RT_FILE_H_
 #define FLANG_RT_FILE_H_
 
-#include "flang-rt/memory.h"
 #include "io-error.h"
+#include "flang-rt/memory.h"
 #include "flang/Common/optional.h"
 #include <cinttypes>
 
