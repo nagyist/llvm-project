@@ -23,6 +23,7 @@ if (LLVM_ENABLE_EH)
 endif()
 
 set(FLANG_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR})
+set(FLANG_RT_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../flang-rt")
 
 if (CMAKE_SOURCE_DIR STREQUAL CMAKE_BINARY_DIR AND NOT MSVC_IDE)
   message(FATAL_ERROR "In-source builds are not allowed. \
@@ -473,7 +474,7 @@ if (FLANG_CUF_RUNTIME)
   find_package(CUDAToolkit REQUIRED)
 endif()
 
-add_subdirectory(../flang-rt/lib/flang_rt runtime)
+add_subdirectory(runtime)
 
 if (LLVM_INCLUDE_EXAMPLES)
   add_subdirectory(examples)
