@@ -7,9 +7,9 @@
 //===----------------------------------------------------------------------===//
 
 #include "flang/Runtime/misc-intrinsic.h"
-#include "flang-rt/descriptor.h"
 #include "terminator.h"
 #include "tools.h"
+#include "flang-rt/descriptor.h"
 #include "flang/Common/optional.h"
 #include <algorithm>
 #include <cstdio>

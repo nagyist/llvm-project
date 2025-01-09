@@ -26,7 +26,6 @@ add_flang_library(FortranParser
 
   LINK_LIBS
   FortranSupport
-  FortranSupport
 
   LINK_COMPONENTS
   Support

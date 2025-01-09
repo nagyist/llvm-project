@@ -7,9 +7,9 @@
 //===----------------------------------------------------------------------===//
 
 #include "flang/Runtime/random.h"
+#include "gtest/gtest.h"
 #include "flang-rt/descriptor.h"
 #include "flang-rt/type-code.h"
-#include "gtest/gtest.h"
 #include <cmath>
 
 using namespace Fortran::runtime;

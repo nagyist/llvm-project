@@ -8,10 +8,10 @@
 
 #include "flang-rt/array-constructor.h"
 #include "derived.h"
-#include "flang-rt/descriptor.h"
 #include "terminator.h"
 #include "tools.h"
 #include "type-info.h"
+#include "flang-rt/descriptor.h"
 #include "flang/Runtime/allocatable.h"
 #include "flang/Runtime/assign.h"
 

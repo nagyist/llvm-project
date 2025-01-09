@@ -21,10 +21,10 @@
 #ifndef FLANG_RT_REDUCTION_TEMPLATES_H_
 #define FLANG_RT_REDUCTION_TEMPLATES_H_
 
-#include "flang-rt/descriptor.h"
 #include "numeric-templates.h"
 #include "terminator.h"
 #include "tools.h"
+#include "flang-rt/descriptor.h"
 #include "flang/Runtime/cpp-type.h"
 #include <algorithm>
 

@@ -6,8 +6,6 @@
 #
 #===------------------------------------------------------------------------===#
 
-include(GNUInstallDirs)
-
 
 # Determine the subdirectory relative to Clang's resource dir/sysroot where to
 # install target-specific libraries, to be found by Clang/Flang driver. This was
@@ -35,15 +33,15 @@ include(GNUInstallDirs)
 # ToolChain::getArchSpecificLibPaths(...).
 function (get_toolchain_library_subdir outvar)
   if (NOT APPLE)
-    set(outval "${CMAKE_INSTALL_LIBDIR}")
+    set(outval "lib")
   else ()
     # Required to be "darwin" for MachO toolchain.
     get_toolchain_os_dirname(os_dirname)
-    set(outval "${CMAKE_INSTALL_LIBDIR}/${os_dirname}")
+    set(outval "lib/${os_dirname}")
   endif ()
 
   get_toolchain_arch_dirname(arch_dirname)
-  set(outval "${CMAKE_INSTALL_LIBDIR}/${arch_dirname}")
+  set(outval "lib/${arch_dirname}")
 
   set(${outvar} "${outval}" PARENT_SCOPE)
 endfunction ()

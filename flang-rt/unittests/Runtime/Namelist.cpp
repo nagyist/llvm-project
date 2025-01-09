@@ -8,8 +8,8 @@
 
 #include "../../lib/flang_rt/namelist.h"
 #include "CrashHandlerFixture.h"
-#include "flang-rt/descriptor.h"
 #include "tools.h"
+#include "flang-rt/descriptor.h"
 #include "flang/Runtime/io-api-consts.h"
 #include <algorithm>
 #include <cinttypes>

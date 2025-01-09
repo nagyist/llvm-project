@@ -10,9 +10,9 @@
 // extensions that will eventually be implemented in Fortran.
 
 #include "flang/Runtime/extensions.h"
-#include "flang-rt/descriptor.h"
 #include "terminator.h"
 #include "tools.h"
+#include "flang-rt/descriptor.h"
 #include "flang/Runtime/command.h"
 #include "flang/Runtime/entry-names.h"
 #include "flang/Runtime/io-api.h"

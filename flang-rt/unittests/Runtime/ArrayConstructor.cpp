@@ -6,11 +6,11 @@
 //
 //===----------------------------------------------------------------------===//
 
+#include "tools.h"
+#include "gtest/gtest.h"
 #include "flang-rt/array-constructor.h"
 #include "flang-rt/descriptor.h"
 #include "flang-rt/type-code.h"
-#include "gtest/gtest.h"
-#include "tools.h"
 #include "flang/Runtime/allocatable.h"
 #include "flang/Runtime/cpp-type.h"
 

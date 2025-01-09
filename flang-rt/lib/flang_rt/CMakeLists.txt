@@ -15,8 +15,8 @@ set(BACKTRACE_HEADER ${Backtrace_HEADER})
 
 # List of files that are buildable for all devices.
 set(supported_sources
-  ${FLANG_SOURCE_DIR}/lib/Common/binary-to-decimal.cpp
-  ${FLANG_SOURCE_DIR}/lib/Common/decimal-to-binary.cpp
+  ${FLANG_SOURCE_DIR}/lib/Decimal/binary-to-decimal.cpp
+  ${FLANG_SOURCE_DIR}/lib/Decimal/decimal-to-binary.cpp
   ISO_Fortran_binding.cpp
   allocator-registry.cpp
   allocatable.cpp
@@ -72,15 +72,13 @@ set(supported_sources
 
 # List of source not used for GPU offloading.
 set(host_sources
-  ${FLANG_SOURCE_DIR}/lib/Common/binary-to-decimal.cpp
-  ${FLANG_SOURCE_DIR}/lib/Common/decimal-to-binary.cpp
+  ${FLANG_SOURCE_DIR}/module/iso_fortran_env_impl.f90
   command.cpp
   complex-powi.cpp
   complex-reduction.c
   exceptions.cpp
   execute.cpp
   extensions.cpp
-  ${FLANG_SOURCE_DIR}/module/iso_fortran_env_impl.f90
   main.cpp
   random.cpp
   reduce.cpp

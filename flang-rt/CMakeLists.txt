@@ -68,7 +68,6 @@ include(GetToolchainDirs)
 include(FlangCommon)
 include(HandleCompilerRT)
 include(ExtendPath)
-include(GNUInstallDirs)
 
 
 ############################
@@ -110,9 +109,9 @@ else ()
   # be installed there using the same prefix. This is to not have a difference
   # between bootstrap and standalone runtimes builds.
   set(FLANG_RT_OUTPUT_RESOURCE_DIR "${CMAKE_CURRENT_BINARY_DIR}")
-  set(FLANG_RT_INSTALL_RESOURCE_PATH "${CMAKE_INSTALL_LIBDIR}/clang/${LLVM_VERSION_MAJOR}")
+  set(FLANG_RT_INSTALL_RESOURCE_PATH "lib/clang/${LLVM_VERSION_MAJOR}")
 
-  extend_path(FLANG_RT_OUTPUT_RESOURCE_LIB_DIR "${FLANG_RT_OUTPUT_RESOURCE_DIR}" "${CMAKE_INSTALL_LIBDIR}")
+  extend_path(FLANG_RT_OUTPUT_RESOURCE_LIB_DIR "${FLANG_RT_OUTPUT_RESOURCE_DIR}" "lib")
 endif ()
 extend_path(FLANG_RT_INSTALL_RESOURCE_LIB_PATH "${FLANG_RT_INSTALL_RESOURCE_PATH}" "${toolchain_lib_subdir}")
 cmake_path(NORMAL_PATH FLANG_RT_OUTPUT_RESOURCE_DIR)

@@ -16,12 +16,12 @@
 
 #include "edit-input.h"
 #include "edit-output.h"
-#include "flang-rt/descriptor.h"
 #include "io-stmt.h"
 #include "namelist.h"
 #include "terminator.h"
 #include "type-info.h"
 #include "unit.h"
+#include "flang-rt/descriptor.h"
 #include "flang/Common/optional.h"
 #include "flang/Common/uint128.h"
 #include "flang/Runtime/cpp-type.h"

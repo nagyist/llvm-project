@@ -11,9 +11,9 @@
 
 // Internal utils for establishing CFI_cdesc_t descriptors.
 
+#include "terminator.h"
 #include "flang-rt/descriptor.h"
 #include "flang-rt/type-code.h"
-#include "terminator.h"
 #include "flang/Common/ISO_Fortran_binding_wrapper.h"
 #include <cstdlib>
 
