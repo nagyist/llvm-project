@@ -1,4 +1,4 @@
-#include "flang/Common/decimal.h"
+#include "flang/Decimal/decimal.h"
 #include "llvm/Support/raw_ostream.h"
 #include <cinttypes>
 #include <cstdio>

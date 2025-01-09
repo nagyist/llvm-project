@@ -111,8 +111,8 @@ add_definitions(-U_LIBCPP_ENABLE_ASSERTIONS)
 add_subdirectory(Float128Math)
 
 set(sources
-  ${FLANG_SOURCE_DIR}/lib/Common/binary-to-decimal.cpp
-  ${FLANG_SOURCE_DIR}/lib/Common/decimal-to-binary.cpp
+  ${FLANG_SOURCE_DIR}/lib/Decimal/binary-to-decimal.cpp
+  ${FLANG_SOURCE_DIR}/lib/Decimal/decimal-to-binary.cpp
   ISO_Fortran_binding.cpp
   allocator-registry.cpp
   allocatable.cpp
