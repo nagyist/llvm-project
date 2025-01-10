@@ -42,7 +42,6 @@ if(FLANG_VENDOR)
     PROPERTIES COMPILE_DEFINITIONS "FLANG_VENDOR=\"${FLANG_VENDOR} \"")
 endif()
 
-
 add_flang_library(FortranSupport
   Fortran.cpp
   Fortran-features.cpp
@@ -54,8 +53,8 @@ add_flang_library(FortranSupport
   ${version_inc}
 
   LINK_COMPONENTS
-    Support
+  Support
 
   LINK_LIBS
-    MLIRIR
+  MLIRIR
 )
