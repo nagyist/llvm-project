@@ -164,7 +164,7 @@ else:
     )
 
 if config.flang_include_runtime:
-  config.available_features.add("flang-rt")
+    config.available_features.add("flang-rt")
 
 # Define some variables to help us test that the flang runtime doesn't depend on
 # the C++ runtime libraries. For this we need a C compiler. If for some reason

@@ -13,8 +13,6 @@
 #include "flang/Runtime/CUDA/common.h"
 #include "flang/Runtime/CUDA/descriptor.h"
 #include "flang/Runtime/allocator-registry.h"
-#include "flang/Runtime/descriptor.h"
-#include "flang/Runtime/memory.h"
 #include "flang/Support/Fortran.h"
 
 #include "cuda_runtime.h"
