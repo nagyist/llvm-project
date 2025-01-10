@@ -134,8 +134,8 @@ if (NOT WIN32)
     ADDITIONAL_HEADERS ${public_headers} ${private_headers}
   )
 
-  enable_cuda_compilation(flang_rt.static "${supported_sources}")
-  enable_omp_offload_compilation(flang_rt.static "${supported_sources}")
+  enable_cuda_compilation(flang_rt "${supported_sources}")
+  enable_omp_offload_compilation(flang_rt "${supported_sources}")
 
   # For unittests that depend on flang_rt. Should link to the static version
   # of the library.

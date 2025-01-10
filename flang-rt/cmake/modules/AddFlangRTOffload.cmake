@@ -54,8 +54,10 @@ macro(enable_cuda_compilation name files)
     # When using libcudacxx headers files, we have to use them
     # for all files of Flang-RT.
     if (EXISTS "${FLANG_RT_LIBCUDACXX_PATH}/include")
-      target_include_directories(obj.${name}PTX AFTER PRIVATE "${FLANG_RT_LIBCUDACXX_PATH}/include")
-      target_compile_definitions(obj.${name}PTX PRIVATE RT_USE_LIBCUDACXX=1)
+      foreach (tgt IN ITEMS "${name}" "obj.${name}PTX")
+        target_include_directories(${tgt} AFTER PRIVATE "${FLANG_RT_LIBCUDACXX_PATH}/include")
+        target_compile_definitions(${tgt} PRIVATE RT_USE_LIBCUDACXX=1)
+      endforeach ()
     endif ()
   endif()
 endmacro()
