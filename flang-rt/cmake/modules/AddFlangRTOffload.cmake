@@ -10,9 +10,10 @@ macro(enable_cuda_compilation name files)
   if (FLANG_RT_EXPERIMENTAL_OFFLOAD_SUPPORT STREQUAL "CUDA")
     enable_language(CUDA)
 
-    # TODO: figure out how to make target property CUDA_SEPARABLE_COMPILATION
-    # work, and avoid setting CMAKE_CUDA_SEPARABLE_COMPILATION.
-    set(CMAKE_CUDA_SEPARABLE_COMPILATION ON)
+    set_target_properties(${name}
+        PROPERTIES
+          CUDA_SEPARABLE_COMPILATION ON
+      )
 
     # Treat all supported sources as CUDA files.
     set_source_files_properties(${files} PROPERTIES LANGUAGE CUDA)
