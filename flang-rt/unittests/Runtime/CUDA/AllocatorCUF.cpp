@@ -14,8 +14,6 @@
 #include "flang-rt/descriptor.h"
 #include "flang/Runtime/CUDA/descriptor.h"
 #include "flang/Runtime/allocatable.h"
-#include "flang/Runtime/descriptor.h"
-#include "flang/Runtime/memory.h"
 #include "flang/Support/Fortran.h"
 
 using namespace Fortran::runtime;
