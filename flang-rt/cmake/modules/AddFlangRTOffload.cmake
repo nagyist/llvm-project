@@ -16,9 +16,10 @@ macro(enable_cuda_compilation name files)
 
     enable_language(CUDA)
 
-    # TODO: figure out how to make target property CUDA_SEPARABLE_COMPILATION
-    # work, and avoid setting CMAKE_CUDA_SEPARABLE_COMPILATION.
-    set(CMAKE_CUDA_SEPARABLE_COMPILATION ON)
+    set_target_properties(${name}
+        PROPERTIES
+          CUDA_SEPARABLE_COMPILATION ON
+      )
 
     # Treat all supported sources as CUDA files.
     set_source_files_properties(${files} PROPERTIES LANGUAGE CUDA)
@@ -60,8 +61,10 @@ macro(enable_cuda_compilation name files)
     # When using libcudacxx headers files, we have to use them
     # for all files of Flang-RT.
     if (EXISTS "${FLANG_RT_LIBCUDACXX_PATH}/include")
-      target_include_directories(obj.${name}PTX AFTER PRIVATE "${FLANG_RT_LIBCUDACXX_PATH}/include")
-      target_compile_definitions(obj.${name}PTX PRIVATE RT_USE_LIBCUDACXX=1)
+      foreach (tgt IN ITEMS "${name}" "obj.${name}PTX")
+        target_include_directories(${tgt} AFTER PRIVATE "${FLANG_RT_LIBCUDACXX_PATH}/include")
+        target_compile_definitions(${tgt} PRIVATE RT_USE_LIBCUDACXX=1)
+      endforeach ()
     endif ()
   endif()
 endmacro()
@@ -78,26 +81,6 @@ macro(enable_omp_offload_compilation name files)
 
     if ("${CMAKE_CXX_COMPILER_ID}" MATCHES "Clang" AND
         "${CMAKE_C_COMPILER_ID}" MATCHES "Clang")
-
-      set(all_amdgpu_architectures
-        "gfx700;gfx701;gfx801;gfx803;gfx900;gfx902;gfx906"
-        "gfx908;gfx90a;gfx90c;gfx940;gfx1010;gfx1030"
-        "gfx1031;gfx1032;gfx1033;gfx1034;gfx1035;gfx1036"
-        "gfx1100;gfx1101;gfx1102;gfx1103;gfx1150;gfx1151"
-        "gfx1152;gfx1153"
-        )
-      set(all_nvptx_architectures
-        "sm_35;sm_37;sm_50;sm_52;sm_53;sm_60;sm_61;sm_62"
-        "sm_70;sm_72;sm_75;sm_80;sm_86;sm_89;sm_90"
-        )
-      set(all_gpu_architectures
-        "${all_amdgpu_architectures};${all_nvptx_architectures}"
-        )
-      # TODO: support auto detection on the build system.
-      if (FLANG_RT_DEVICE_ARCHITECTURES STREQUAL "all")
-        set(FLANG_RT_DEVICE_ARCHITECTURES ${all_gpu_architectures})
-      endif()
-      list(REMOVE_DUPLICATES FLANG_RT_DEVICE_ARCHITECTURES)
 
       string(REPLACE ";" "," compile_for_architectures
         "${FLANG_RT_DEVICE_ARCHITECTURES}"

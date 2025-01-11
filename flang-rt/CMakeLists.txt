@@ -109,9 +109,9 @@ else ()
   # be installed there using the same prefix. This is to not have a difference
   # between bootstrap and standalone runtimes builds.
   set(FLANG_RT_OUTPUT_RESOURCE_DIR "${CMAKE_CURRENT_BINARY_DIR}")
-  set(FLANG_RT_INSTALL_RESOURCE_PATH "lib/clang/${LLVM_VERSION_MAJOR}")
+  set(FLANG_RT_INSTALL_RESOURCE_PATH "lib${LLVM_LIBDIR_SUFFIX}/clang/${LLVM_VERSION_MAJOR}")
 
-  extend_path(FLANG_RT_OUTPUT_RESOURCE_LIB_DIR "${FLANG_RT_OUTPUT_RESOURCE_DIR}" "lib")
+  extend_path(FLANG_RT_OUTPUT_RESOURCE_LIB_DIR "${FLANG_RT_OUTPUT_RESOURCE_DIR}" "lib${LLVM_LIBDIR_SUFFIX}")
 endif ()
 extend_path(FLANG_RT_INSTALL_RESOURCE_LIB_PATH "${FLANG_RT_INSTALL_RESOURCE_PATH}" "${toolchain_lib_subdir}")
 cmake_path(NORMAL_PATH FLANG_RT_OUTPUT_RESOURCE_DIR)
@@ -177,6 +177,23 @@ elseif (FLANG_RT_EXPERIMENTAL_OFFLOAD_SUPPORT STREQUAL "OpenMP")
   set(FLANG_RT_DEVICE_ARCHITECTURES "all" CACHE STRING
       "List of OpenMP device architectures to be used to compile the Fortran runtime (e.g. 'gfx1103;sm_90')"
     )
+
+  if (FLANG_RT_DEVICE_ARCHITECTURES STREQUAL "all")
+    # TODO: support auto detection on the build system.
+    set(all_amdgpu_architectures
+      "gfx700;gfx701;gfx801;gfx803;gfx900;gfx902;gfx906"
+      "gfx908;gfx90a;gfx90c;gfx940;gfx1010;gfx1030"
+      "gfx1031;gfx1032;gfx1033;gfx1034;gfx1035;gfx1036"
+      "gfx1100;gfx1101;gfx1102;gfx1103;gfx1150;gfx1151"
+      "gfx1152;gfx1153")
+    set(all_nvptx_architectures
+      "sm_35;sm_37;sm_50;sm_52;sm_53;sm_60;sm_61;sm_62"
+      "sm_70;sm_72;sm_75;sm_80;sm_86;sm_89;sm_90")
+    set(all_gpu_architectures
+      "${all_amdgpu_architectures};${all_nvptx_architectures}")
+      set(FLANG_RT_DEVICE_ARCHITECTURES ${all_gpu_architectures})
+  endif()
+  list(REMOVE_DUPLICATES FLANG_RT_DEVICE_ARCHITECTURES)
 else ()
   message(FATAL_ERROR "Invalid value '${FLANG_RT_EXPERIMENTAL_OFFLOAD_SUPPORT}' for FLANG_RT_EXPERIMENTAL_OFFLOAD_SUPPORT; must be empty, 'CUDA', or 'OpenMP'")
 endif ()

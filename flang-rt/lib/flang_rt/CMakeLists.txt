@@ -134,8 +134,8 @@ if (NOT WIN32)
     ADDITIONAL_HEADERS ${public_headers} ${private_headers}
   )
 
-  enable_cuda_compilation(flang_rt.static "${supported_sources}")
-  enable_omp_offload_compilation(flang_rt.static "${supported_sources}")
+  enable_cuda_compilation(flang_rt "${supported_sources}")
+  enable_omp_offload_compilation(flang_rt "${supported_sources}")
 
   # Select a default runtime, which is used for unit and regression tests.
   get_target_property(default_target flang_rt.default ALIASED_TARGET)
