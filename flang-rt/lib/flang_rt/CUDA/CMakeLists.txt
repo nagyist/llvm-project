@@ -15,17 +15,16 @@ add_flangrt_library(CufRuntime STATIC
   memmove-function.cpp
   memory.cpp
   registration.cpp
-)
 
-# libCufRuntime depends on a certain version of CUDA. To be able to have
-# multiple build of this library with different CUDA version, the version is
-# added to the library name.
-set_target_properties(CufRuntime
-  PROPERTIES
+  # libCufRuntime depends on a certain version of CUDA. To be able to have
+  # multiple build of this library with different CUDA version, the version is
+  # added to the library name.
+  TARGET_PROPERTIES
     OUTPUT_NAME "CufRuntime_cuda_${CUDAToolkit_VERSION_MAJOR}"
-)
 
-target_include_directories(CufRuntime PRIVATE ${CUDAToolkit_INCLUDE_DIRS})
+  INCLUDE_DIRECTORIES
+    PRIVATE ${CUDAToolkit_INCLUDE_DIRS}
+)
 
 target_link_libraries(CufRuntime
   PUBLIC

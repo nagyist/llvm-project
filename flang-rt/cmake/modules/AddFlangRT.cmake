@@ -27,10 +27,14 @@
 #     Library requires include path and linking to LLVM's Support component
 #   ADDITIONAL_HEADERS
 #     May specify header files for IDE generators.
+#   INCLUDE_DIRECTORIES
+#     Additional include_directories for all added targets
+#   TARGET_PROPERTIES
+#     Set target properties of all added targets
 # )
 function (add_flangrt_library name)
   set(options STATIC SHARED OBJECT INSTALL_WITH_TOOLCHAIN EXCLUDE_FROM_ALL LINK_TO_LLVM)
-  set(multiValueArgs ADDITIONAL_HEADERS)
+  set(multiValueArgs ADDITIONAL_HEADERS INCLUDE_DIRECTORIES TARGET_PROPERTIES)
   cmake_parse_arguments(ARG
     "${options}"
     ""
@@ -152,6 +156,10 @@ function (add_flangrt_library name)
     target_include_directories(${name} PUBLIC ${LLVM_INCLUDE_DIRS})
   endif ()
 
+  if (ARG_INCLUDE_DIRECTORIES)
+    target_include_directories(${name} ${ARG_INCLUDE_DIRECTORIES})
+  endif ()
+
   # If this is part of the toolchain, put it into the compiler's resource
   # directory. Otherwise it is part of testing and is not installed at all.
   # TODO: Consider multi-configuration builds (MSVC_IDE, "Ninja Multi-Config")
@@ -164,6 +172,10 @@ function (add_flangrt_library name)
     install(TARGETS ${name}
         ARCHIVE DESTINATION "${FLANG_RT_INSTALL_RESOURCE_LIB_PATH}"
       )
+  endif ()
+
+  if (ARG_TARGET_PROPERTIES)
+    set_target_properties(${name} PROPERTIES ${ARG_TARGET_PROPERTIES})
   endif ()
 
   # flang-rt should build all the Flang-RT targets that are built in an
