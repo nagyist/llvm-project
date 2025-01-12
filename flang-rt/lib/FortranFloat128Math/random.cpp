@@ -8,7 +8,7 @@
 
 #include "math-entries.h"
 #include "numeric-template-specs.h"
-#include "../flang_rt/random-templates.h"
+#include "flang-rt/random-templates.h"
 
 using namespace Fortran::runtime::random;
 extern "C" {

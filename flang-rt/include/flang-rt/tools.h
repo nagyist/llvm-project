@@ -1,4 +1,4 @@
-//===-- lib/flang_rt/tools.h ------------------------------------*- C++ -*-===//
+//===-- include/flang-rt/tools.h --------------------------------*- C++ -*-===//
 //
 // Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.
 // See https://llvm.org/LICENSE.txt for license information.
@@ -9,10 +9,10 @@
 #ifndef FLANG_RT_TOOLS_H_
 #define FLANG_RT_TOOLS_H_
 
+#include "descriptor.h"
+#include "memory.h"
 #include "stat.h"
 #include "terminator.h"
-#include "flang-rt/descriptor.h"
-#include "flang-rt/memory.h"
 #include "flang/Common/optional.h"
 #include "flang/Runtime/cpp-type.h"
 #include "flang/Runtime/freestanding-tools.h"

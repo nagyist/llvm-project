@@ -8,7 +8,7 @@
 
 // Implements PRODUCT for all required operand types and shapes.
 
-#include "reduction-templates.h"
+#include "flang-rt/reduction-templates.h"
 #include "flang/Common/float128.h"
 #include "flang/Runtime/reduction.h"
 #include <cfloat>

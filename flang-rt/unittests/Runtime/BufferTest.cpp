@@ -6,7 +6,7 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "../../lib/flang_rt/buffer.h"
+#include "flang-rt/buffer.h"
 #include "CrashHandlerFixture.h"
 #include "gtest/gtest.h"
 #include <algorithm>

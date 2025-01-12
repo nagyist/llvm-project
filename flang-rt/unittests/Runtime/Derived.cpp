@@ -6,9 +6,9 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "tools.h"
 #include "gtest/gtest.h"
 #include "flang-rt/descriptor.h"
+#include "flang-rt/tools.h"
 #include "flang/Runtime/derived-api.h"
 
 using namespace Fortran::runtime;

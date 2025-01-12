@@ -6,7 +6,7 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "utf.h"
+#include "flang-rt/utf.h"
 
 namespace Fortran::runtime {
 

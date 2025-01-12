@@ -11,9 +11,9 @@
 
 #include "flang/Runtime/inquiry.h"
 #include "copy.h"
-#include "terminator.h"
-#include "tools.h"
 #include "flang-rt/descriptor.h"
+#include "flang-rt/terminator.h"
+#include "flang-rt/tools.h"
 #include <algorithm>
 
 namespace Fortran::runtime {

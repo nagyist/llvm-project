@@ -1,4 +1,4 @@
-//===-- lib/flang_rt/random-templates.h -------------------------*- C++ -*-===//
+//===-- include/flang-rt/random-templates.h ---------------------*- C++ -*-===//
 //
 // Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.
 // See https://llvm.org/LICENSE.txt for license information.
@@ -9,9 +9,9 @@
 #ifndef FLANG_RT_RANDOM_TEMPLATES_H_
 #define FLANG_RT_RANDOM_TEMPLATES_H_
 
+#include "descriptor.h"
 #include "lock.h"
 #include "numeric-templates.h"
-#include "flang-rt/descriptor.h"
 #include "flang/Common/optional.h"
 #include <algorithm>
 #include <random>

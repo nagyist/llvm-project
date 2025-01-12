@@ -7,11 +7,11 @@
 //===----------------------------------------------------------------------===//
 
 #include "flang-rt/array-constructor.h"
-#include "derived.h"
-#include "terminator.h"
-#include "tools.h"
-#include "type-info.h"
+#include "flang-rt/derived.h"
 #include "flang-rt/descriptor.h"
+#include "flang-rt/terminator.h"
+#include "flang-rt/tools.h"
+#include "flang-rt/type-info.h"
 #include "flang/Runtime/allocatable.h"
 #include "flang/Runtime/assign.h"
 

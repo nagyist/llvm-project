@@ -7,8 +7,8 @@
 //===----------------------------------------------------------------------===//
 
 #include "edit-input.h"
-#include "namelist.h"
-#include "utf.h"
+#include "flang-rt/namelist.h"
+#include "flang-rt/utf.h"
 #include "flang/Common/optional.h"
 #include "flang/Common/real.h"
 #include "flang/Common/uint128.h"

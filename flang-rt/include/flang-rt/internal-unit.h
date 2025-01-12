@@ -1,4 +1,4 @@
-//===-- lib/flang_rt/internal-unit.h ----------------------------*- C++ -*-===//
+//===-- include/flang-rt/internal-unit.h ------------------------*- C++ -*-===//
 //
 // Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.
 // See https://llvm.org/LICENSE.txt for license information.
@@ -12,7 +12,7 @@
 #define FLANG_RT_INTERNAL_UNIT_H_
 
 #include "connection.h"
-#include "flang-rt/descriptor.h"
+#include "descriptor.h"
 #include <cinttypes>
 #include <type_traits>
 

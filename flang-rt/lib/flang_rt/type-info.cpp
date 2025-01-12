@@ -6,9 +6,9 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "type-info.h"
-#include "terminator.h"
-#include "tools.h"
+#include "flang-rt/type-info.h"
+#include "flang-rt/terminator.h"
+#include "flang-rt/tools.h"
 #include <cstdio>
 
 namespace Fortran::runtime::typeInfo {

@@ -9,7 +9,7 @@
 // Runtime exception support.
 
 #include "flang/Runtime/exceptions.h"
-#include "terminator.h"
+#include "flang-rt/terminator.h"
 #include <cfenv>
 #if __x86_64__
 #include <xmmintrin.h>

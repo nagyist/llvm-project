@@ -7,8 +7,8 @@
 //===----------------------------------------------------------------------===//
 
 #include "flang/Runtime/main.h"
-#include "environment.h"
-#include "terminator.h"
+#include "flang-rt/environment.h"
+#include "flang-rt/terminator.h"
 #include <cfenv>
 #include <cstdio>
 #include <cstdlib>

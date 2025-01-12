@@ -15,8 +15,6 @@
 #include "flang/Runtime/entry-names.h"
 
 namespace Fortran::runtime {
-using common::TypeCategory;
-
 extern "C" {
 
 // Initializes the descriptor for an allocatable of intrinsic or derived type.

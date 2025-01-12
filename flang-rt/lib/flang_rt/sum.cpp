@@ -12,7 +12,7 @@
 // cancellation on intermediate results by using "Kahan summation"
 // (basically the same as manual "double-double").
 
-#include "reduction-templates.h"
+#include "flang-rt/reduction-templates.h"
 #include "flang/Common/float128.h"
 #include "flang/Runtime/reduction.h"
 #include <cfloat>

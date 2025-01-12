@@ -12,7 +12,7 @@
 #ifndef FLANG_RT_ARRAY_CONSTRUCTOR_H_
 #define FLANG_RT_ARRAY_CONSTRUCTOR_H_
 
-#include "flang-rt/descriptor.h"
+#include "descriptor.h"
 #include "flang/Runtime/array-constructor-consts.h"
 #include "flang/Runtime/entry-names.h"
 #include <cstdint>

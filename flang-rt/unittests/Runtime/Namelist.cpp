@@ -6,7 +6,7 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "../../lib/flang_rt/namelist.h"
+#include "flang-rt/namelist.h"
 #include "CrashHandlerFixture.h"
 #include "tools.h"
 #include "flang-rt/descriptor.h"

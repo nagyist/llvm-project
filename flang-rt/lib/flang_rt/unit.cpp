@@ -11,9 +11,9 @@
 //
 //===----------------------------------------------------------------------===//
 #include "unit.h"
-#include "io-error.h"
-#include "lock.h"
-#include "tools.h"
+#include "flang-rt/io-error.h"
+#include "flang-rt/lock.h"
+#include "flang-rt/tools.h"
 #include <limits>
 #include <utility>
 

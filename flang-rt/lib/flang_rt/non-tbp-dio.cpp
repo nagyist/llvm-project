@@ -6,8 +6,8 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "non-tbp-dio.h"
-#include "type-info.h"
+#include "flang-rt/non-tbp-dio.h"
+#include "flang-rt/type-info.h"
 
 namespace Fortran::runtime::io {
 
