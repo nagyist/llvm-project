@@ -16,10 +16,6 @@
 #include "flang/Common/ISO_Fortran_binding_wrapper.h"
 #include "flang/Runtime/assign.h"
 
-using Fortran::common::TypeCategory;
-
-
-
 namespace Fortran::runtime {
 extern "C" {
 RT_EXT_API_GROUP_BEGIN

@@ -44,6 +44,14 @@ private:
   unsigned char useValueLengthParameters_ : 1;
 };
 
+static_assert(sizeof(Fortran::runtime::ArrayConstructorVector) <=
+        MaxArrayConstructorVectorSizeInBytes,
+    "ABI requires sizeof(ArrayConstructorVector) to be smaller than "
+    "MaxArrayConstructorVectorSizeInBytes");
+static_assert(alignof(Fortran::runtime::ArrayConstructorVector) <=
+        MaxArrayConstructorVectorAlignInBytes,
+    "ABI requires alignof(ArrayConstructorVector) to be smaller than "
+    "MaxArrayConstructorVectorAlignInBytes");
 
 } // namespace Fortran::runtime
 #endif /* FLANG_RT_ARRAY_CONSTRUCTOR_H_ */
