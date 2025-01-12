@@ -17,7 +17,6 @@
 #include "flang/Evaluate/intrinsics.h"
 #include "flang/Evaluate/target.h"
 #include "flang/Parser/message.h"
-#include "flang/Semantics/module-dependences.h"
 #include "flang/Support/Fortran-features.h"
 #include "flang/Support/LangOptions.h"
 #include <iosfwd>
