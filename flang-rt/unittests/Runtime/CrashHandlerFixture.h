@@ -10,6 +10,7 @@
 /// with expected message.
 //
 //===----------------------------------------------------------------------===//
+
 #ifndef FLANG_RT_UNITTESTS_RUNTIME_CRASHHANDLERFIXTURE_H_
 #define FLANG_RT_UNITTESTS_RUNTIME_CRASHHANDLERFIXTURE_H_
 #include <gtest/gtest.h>

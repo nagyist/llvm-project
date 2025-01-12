@@ -6,10 +6,10 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "environment.h"
+#include "flang-rt/environment.h"
 #include "environment-default-list.h"
 #include "memory.h"
-#include "tools.h"
+#include "flang-rt/tools.h"
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>

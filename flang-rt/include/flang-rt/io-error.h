@@ -1,4 +1,4 @@
-//===-- lib/flang_rt/io-error.h ---------------------------------*- C++ -*-===//
+//===-- include/flang-rt/io-error.h -----------------------------*- C++ -*-===//
 //
 // Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.
 // See https://llvm.org/LICENSE.txt for license information.
@@ -15,8 +15,8 @@
 #ifndef FLANG_RT_IO_ERROR_H_
 #define FLANG_RT_IO_ERROR_H_
 
+#include "memory.h"
 #include "terminator.h"
-#include "flang-rt/memory.h"
 #include "flang/Runtime/iostat.h"
 #include <cinttypes>
 

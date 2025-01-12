@@ -7,7 +7,7 @@
 //===----------------------------------------------------------------------===//
 
 #include "flang-rt/allocator-registry.h"
-#include "terminator.h"
+#include "flang-rt/terminator.h"
 
 namespace Fortran::runtime {
 

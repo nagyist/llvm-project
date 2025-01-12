@@ -7,18 +7,14 @@
 //===----------------------------------------------------------------------===//
 
 #include "flang/Runtime/allocatable.h"
-#include "assign-impl.h"
-#include "derived.h"
-#include "stat.h"
-#include "terminator.h"
-#include "type-info.h"
+#include "flang-rt/assign-impl.h"
+#include "flang-rt/derived.h"
 #include "flang-rt/descriptor.h"
+#include "flang-rt/stat.h"
+#include "flang-rt/terminator.h"
+#include "flang-rt/type-info.h"
 #include "flang/Common/ISO_Fortran_binding_wrapper.h"
 #include "flang/Runtime/assign.h"
-
-using Fortran::common::TypeCategory;
-
-
 
 namespace Fortran::runtime {
 extern "C" {

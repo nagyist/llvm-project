@@ -9,9 +9,9 @@
 #ifndef FLANG_RT_IO_API_COMMON_H_
 #define FLANG_RT_IO_API_COMMON_H_
 
-#include "io-stmt.h"
-#include "terminator.h"
 #include "unit.h"
+#include "flang-rt/io-stmt.h"
+#include "flang-rt/terminator.h"
 #include "flang/Common/api-attrs.h"
 #include "flang/Common/optional.h"
 #include "flang/Runtime/io-api.h"

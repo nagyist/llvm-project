@@ -7,11 +7,11 @@
 //===----------------------------------------------------------------------===//
 
 #include "flang/Runtime/command.h"
-#include "environment.h"
-#include "stat.h"
-#include "terminator.h"
-#include "tools.h"
 #include "flang-rt/descriptor.h"
+#include "flang-rt/environment.h"
+#include "flang-rt/stat.h"
+#include "flang-rt/terminator.h"
+#include "flang-rt/tools.h"
 #include <cstdlib>
 #include <limits>
 

@@ -7,7 +7,6 @@
 //===----------------------------------------------------------------------===//
 
 #include "flang-rt/type-code.h"
-#include <cstdint>
 
 namespace Fortran::runtime {
 

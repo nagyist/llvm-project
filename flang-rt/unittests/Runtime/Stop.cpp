@@ -9,9 +9,10 @@
 /// Test runtime API for STOP statement and runtime API to kill the program.
 //
 //===----------------------------------------------------------------------===//
+
 #include "flang/Runtime/stop.h"
 #include "CrashHandlerFixture.h"
-#include "../../lib/flang_rt/environment.h"
+#include "flang-rt/environment.h"
 #include <cstdlib>
 #include <gtest/gtest.h>
 

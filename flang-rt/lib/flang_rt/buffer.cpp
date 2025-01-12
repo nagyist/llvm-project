@@ -6,7 +6,7 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "buffer.h"
+#include "flang-rt/buffer.h"
 #include <algorithm>
 
 namespace Fortran::runtime::io {

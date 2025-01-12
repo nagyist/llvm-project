@@ -6,7 +6,7 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "format-implementation.h"
+#include "flang-rt/format-implementation.h"
 
 namespace Fortran::runtime::io {
 RT_OFFLOAD_API_GROUP_BEGIN

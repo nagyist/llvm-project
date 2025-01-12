@@ -8,11 +8,11 @@
 
 #include "flang/Runtime/stop.h"
 #include "config.h"
-#include "environment.h"
-#include "file.h"
-#include "io-error.h"
-#include "terminator.h"
 #include "unit.h"
+#include "flang-rt/environment.h"
+#include "flang-rt/file.h"
+#include "flang-rt/io-error.h"
+#include "flang-rt/terminator.h"
 #include <cfenv>
 #include <cstdio>
 #include <cstdlib>

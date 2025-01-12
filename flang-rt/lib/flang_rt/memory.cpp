@@ -7,8 +7,8 @@
 //===----------------------------------------------------------------------===//
 
 #include "flang-rt/memory.h"
-#include "terminator.h"
-#include "tools.h"
+#include "flang-rt/terminator.h"
+#include "flang-rt/tools.h"
 #include "flang/Runtime/freestanding-tools.h"
 #include <cstdlib>
 

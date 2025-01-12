@@ -10,8 +10,8 @@
 // as specified in section 18.5.5 of Fortran 2018.
 
 #include "ISO_Fortran_util.h"
-#include "terminator.h"
 #include "flang-rt/descriptor.h"
+#include "flang-rt/terminator.h"
 #include "flang-rt/type-code.h"
 #include "flang/Common/ISO_Fortran_binding_wrapper.h"
 #include "flang/Runtime/pointer.h"

@@ -18,9 +18,9 @@
 
 #include "flang/Runtime/transformational.h"
 #include "copy.h"
-#include "terminator.h"
-#include "tools.h"
 #include "flang-rt/descriptor.h"
+#include "flang-rt/terminator.h"
+#include "flang-rt/tools.h"
 #include "flang/Common/float128.h"
 
 namespace Fortran::runtime {

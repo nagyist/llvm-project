@@ -1,4 +1,4 @@
-//===-- lib/flang_rt/type-info.h --------------------------------*- C++ -*-===//
+//===-- include/flang-rt/type-info.h ----------------------------*- C++ -*-===//
 //
 // Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.
 // See https://llvm.org/LICENSE.txt for license information.
@@ -12,8 +12,8 @@
 // A C++ perspective of the derived type description schemata in
 // flang/module/__fortran_type_info.f90.
 
+#include "descriptor.h"
 #include "terminator.h"
-#include "flang-rt/descriptor.h"
 #include "flang/Common/Fortran-consts.h"
 #include "flang/Common/bit-population-count.h"
 #include "flang/Common/optional.h"

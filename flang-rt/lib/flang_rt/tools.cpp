@@ -6,8 +6,8 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "tools.h"
-#include "terminator.h"
+#include "flang-rt/tools.h"
+#include "flang-rt/terminator.h"
 #include <algorithm>
 #include <cstdint>
 #include <cstdlib>
