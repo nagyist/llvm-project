@@ -11,12 +11,10 @@
 #ifndef FORTRAN_RUNTIME_ALLOCATABLE_H_
 #define FORTRAN_RUNTIME_ALLOCATABLE_H_
 
-#include "flang/Common/Fortran-consts.h"
 #include "flang/Runtime/descriptor-consts.h"
 #include "flang/Runtime/entry-names.h"
 
 namespace Fortran::runtime {
-using SubscriptValue = ISO::CFI_index_t;
 using common::TypeCategory;
 
 extern "C" {
