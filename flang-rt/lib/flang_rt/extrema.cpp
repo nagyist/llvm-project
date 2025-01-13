@@ -10,7 +10,7 @@
 // and shapes and (for MAXLOC & MINLOC) result integer kinds.  Also implements
 // NORM2 using common infrastructure.
 
-#include "reduction-templates.h"
+#include "flang-rt/reduction-templates.h"
 #include "flang/Common/float128.h"
 #include "flang/Runtime/character.h"
 #include "flang/Runtime/reduction.h"

@@ -6,10 +6,10 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "namelist.h"
+#include "flang-rt/namelist.h"
 #include "descriptor-io.h"
-#include "emit-encoded.h"
-#include "io-stmt.h"
+#include "flang-rt/emit-encoded.h"
+#include "flang-rt/io-stmt.h"
 #include "flang/Runtime/io-api.h"
 #include <algorithm>
 #include <cstring>

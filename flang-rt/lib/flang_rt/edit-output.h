@@ -18,8 +18,8 @@
 // Drives the same fast binary-to-decimal formatting templates used
 // in the f18 front-end.
 
-#include "format.h"
-#include "io-stmt.h"
+#include "flang-rt/format.h"
+#include "flang-rt/io-stmt.h"
 #include "flang/Common/uint128.h"
 #include "flang/Decimal/decimal.h"
 

@@ -10,10 +10,10 @@
 // RANDOM_SEED.
 
 #include "flang/Runtime/random.h"
-#include "lock.h"
-#include "random-templates.h"
-#include "terminator.h"
 #include "flang-rt/descriptor.h"
+#include "flang-rt/lock.h"
+#include "flang-rt/random-templates.h"
+#include "flang-rt/terminator.h"
 #include "flang/Common/float128.h"
 #include "flang/Common/leading-zero-bit-count.h"
 #include "flang/Common/uint128.h"

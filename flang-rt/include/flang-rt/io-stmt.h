@@ -1,4 +1,4 @@
-//===-- lib/flang_rt/io-stmt.h ----------------------------------*- C++ -*-===//
+//===-- include/flang-rt/io-stmt.h ------------------------------*- C++ -*-===//
 //
 // Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.
 // See https://llvm.org/LICENSE.txt for license information.
@@ -12,11 +12,11 @@
 #define FLANG_RT_IO_STMT_H_
 
 #include "connection.h"
+#include "descriptor.h"
 #include "file.h"
 #include "format.h"
 #include "internal-unit.h"
 #include "io-error.h"
-#include "flang-rt/descriptor.h"
 #include "flang/Common/optional.h"
 #include "flang/Common/reference-wrapper.h"
 #include "flang/Common/visit.h"

@@ -11,9 +11,9 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "io-error.h"
-#include "tools.h"
 #include "unit.h"
+#include "flang-rt/io-error.h"
+#include "flang-rt/tools.h"
 
 // NOTE: the header files above may define OpenMP declare target
 // variables, so they have to be included unconditionally

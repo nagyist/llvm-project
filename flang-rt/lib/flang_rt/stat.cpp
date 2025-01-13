@@ -6,10 +6,10 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "stat.h"
-#include "terminator.h"
-#include "tools.h"
+#include "flang-rt/stat.h"
 #include "flang-rt/descriptor.h"
+#include "flang-rt/terminator.h"
+#include "flang-rt/tools.h"
 
 namespace Fortran::runtime {
 RT_OFFLOAD_API_GROUP_BEGIN

@@ -6,7 +6,7 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "terminator.h"
+#include "flang-rt/terminator.h"
 #include <cstdio>
 #include <cstdlib>
 

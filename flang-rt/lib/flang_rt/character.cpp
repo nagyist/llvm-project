@@ -7,9 +7,9 @@
 //===----------------------------------------------------------------------===//
 
 #include "flang/Runtime/character.h"
-#include "terminator.h"
-#include "tools.h"
 #include "flang-rt/descriptor.h"
+#include "flang-rt/terminator.h"
+#include "flang-rt/tools.h"
 #include "flang/Common/bit-population-count.h"
 #include "flang/Common/uint128.h"
 #include "flang/Runtime/character.h"

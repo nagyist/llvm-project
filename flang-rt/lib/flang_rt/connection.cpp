@@ -6,9 +6,9 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "connection.h"
-#include "environment.h"
-#include "io-stmt.h"
+#include "flang-rt/connection.h"
+#include "flang-rt/environment.h"
+#include "flang-rt/io-stmt.h"
 #include <algorithm>
 
 namespace Fortran::runtime::io {

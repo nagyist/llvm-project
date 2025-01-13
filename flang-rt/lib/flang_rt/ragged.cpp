@@ -7,7 +7,7 @@
 //===----------------------------------------------------------------------===//
 
 #include "flang/Runtime/ragged.h"
-#include "tools.h"
+#include "flang-rt/tools.h"
 #include <cstdlib>
 
 namespace Fortran::runtime {

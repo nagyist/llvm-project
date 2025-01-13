@@ -6,9 +6,9 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "type-info.h"
-#include "terminator.h"
-#include "tools.h"
+#include "flang-rt/type-info.h"
+#include "flang-rt/terminator.h"
+#include "flang-rt/tools.h"
 #include <cstdio>
 
 namespace Fortran::runtime::typeInfo {
@@ -85,14 +85,10 @@ RT_API_ATTRS std::size_t Component::SizeInBytes(
     return GetElementByteSize(instance) * GetElements(instance);
   } else if (category() == TypeCategory::Derived) {
     const DerivedType *type{derivedType()};
-    auto bytes {Descriptor::SizeInBytes(
-        rank_, true, type ? type->LenParameters() : 0)};
-    assert(bytes <=  MaxDescriptorSizeInBytes(  rank_, true, type ? type->LenParameters() : 0));
-    return bytes;
+    return Descriptor::SizeInBytes(
+         rank_, true, type ? type->LenParameters() : 0);
   } else {
-    auto bytes{ Descriptor::SizeInBytes(rank_)};
-        assert(bytes <=  MaxDescriptorSizeInBytes(  rank_));
-        return bytes;
+    return Descriptor::SizeInBytes(rank_);
   }
 }
 

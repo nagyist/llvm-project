@@ -1,4 +1,4 @@
-//===-- lib/flang_rt/file.h -------------------------------------*- C++ -*-===//
+//===-- include/flang-rt/file.h ---------------------------------*- C++ -*-===//
 //
 // Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.
 // See https://llvm.org/LICENSE.txt for license information.
@@ -12,7 +12,7 @@
 #define FLANG_RT_FILE_H_
 
 #include "io-error.h"
-#include "flang-rt/memory.h"
+#include "memory.h"
 #include "flang/Common/optional.h"
 #include <cinttypes>
 

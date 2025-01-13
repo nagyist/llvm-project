@@ -6,14 +6,14 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "io-stmt.h"
-#include "connection.h"
-#include "emit-encoded.h"
-#include "format.h"
-#include "tools.h"
+#include "flang-rt/io-stmt.h"
 #include "unit.h"
-#include "utf.h"
+#include "flang-rt/connection.h"
+#include "flang-rt/emit-encoded.h"
+#include "flang-rt/format.h"
 #include "flang-rt/memory.h"
+#include "flang-rt/tools.h"
+#include "flang-rt/utf.h"
 #include <algorithm>
 #include <cstdio>
 #include <cstring>

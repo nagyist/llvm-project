@@ -5,8 +5,9 @@
 // SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 //
 //===----------------------------------------------------------------------===//
+
 #include "CrashHandlerFixture.h"
-#include "../../lib/flang_rt/terminator.h"
+#include "flang-rt/terminator.h"
 #include <cstdarg>
 #include <cstdlib>
 

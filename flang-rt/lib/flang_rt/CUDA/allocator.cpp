@@ -7,11 +7,11 @@
 //===----------------------------------------------------------------------===//
 
 #include "flang-rt/CUDA/allocator.h"
-#include "../derived.h"
-#include "../stat.h"
-#include "../terminator.h"
-#include "../type-info.h"
 #include "flang-rt/allocator-registry.h"
+#include "flang-rt/derived.h"
+#include "flang-rt/stat.h"
+#include "flang-rt/terminator.h"
+#include "flang-rt/type-info.h"
 #include "flang/Common/ISO_Fortran_binding_wrapper.h"
 #include "flang/Runtime/CUDA/common.h"
 #include "flang/Support/Fortran.h"

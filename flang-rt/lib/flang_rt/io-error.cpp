@@ -6,9 +6,9 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "io-error.h"
+#include "flang-rt/io-error.h"
 #include "config.h"
-#include "tools.h"
+#include "flang-rt/tools.h"
 #include "flang/Runtime/magic-numbers.h"
 #include <cerrno>
 #include <cstdarg>

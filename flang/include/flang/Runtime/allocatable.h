@@ -15,7 +15,6 @@
 #include "flang/Runtime/entry-names.h"
 
 namespace Fortran::runtime {
-using common::TypeCategory;
 
 extern "C" {
 

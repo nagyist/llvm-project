@@ -13,8 +13,8 @@
 #ifndef FLANG_RT_STACK_H_
 #define FLANG_RT_STACK_H_
 
-#include "terminator.h"
 #include "flang-rt/memory.h"
+#include "flang-rt/terminator.h"
 
 namespace Fortran::runtime {
 // Storage for the Stack elements of type T.

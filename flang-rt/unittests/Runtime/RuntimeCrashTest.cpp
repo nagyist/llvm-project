@@ -12,7 +12,7 @@
 //===----------------------------------------------------------------------===//
 #include "CrashHandlerFixture.h"
 #include "tools.h"
-#include "../../lib/flang_rt/terminator.h"
+#include "flang-rt/terminator.h"
 #include "flang/Runtime/io-api-consts.h"
 #include "flang/Runtime/transformational.h"
 #include <gtest/gtest.h>

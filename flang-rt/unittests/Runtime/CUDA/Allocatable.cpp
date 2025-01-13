@@ -7,17 +7,15 @@
 //===----------------------------------------------------------------------===//
 
 #include "flang/Runtime/allocatable.h"
-#include "../../../lib/flang_rt/terminator.h"
+#include "cuda_runtime.h"
 #include "gtest/gtest.h"
 #include "flang-rt/CUDA/allocator.h"
 #include "flang-rt/allocator-registry.h"
 #include "flang-rt/descriptor.h"
-#include "flang-rt/memory.h"
+#include "flang-rt/terminator.h"
 #include "flang/Runtime/CUDA/common.h"
 #include "flang/Runtime/CUDA/descriptor.h"
 #include "flang/Support/Fortran.h"
-
-#include "cuda_runtime.h"
 
 using namespace Fortran::runtime;
 using namespace Fortran::runtime::cuda;

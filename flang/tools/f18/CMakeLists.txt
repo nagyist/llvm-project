@@ -72,7 +72,7 @@ if (NOT CMAKE_CROSSCOMPILING)
       set(depends ${FLANG_INTRINSIC_MODULES_DIR}/__cuda_builtins.mod)
     else()
       set(depends ${FLANG_INTRINSIC_MODULES_DIR}/__fortran_builtins.mod)
-      if(${filename} STREQUAL "iso_fortran_env" AND FLANG_INCLUDE_RUNTIME)
+      if(${filename} STREQUAL "iso_fortran_env")
         set(depends ${depends} ${FLANG_INTRINSIC_MODULES_DIR}/iso_fortran_env_impl.mod)
       endif()
       if(${filename} STREQUAL "ieee_arithmetic" OR
