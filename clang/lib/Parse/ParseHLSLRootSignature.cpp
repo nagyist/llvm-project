@@ -149,3 +149,4 @@ bool RootSignatureLexer::LexToken(RootSignatureToken &Result) {
 
 } // namespace root_signature
 } // namespace hlsl
+} // namespace llvm
