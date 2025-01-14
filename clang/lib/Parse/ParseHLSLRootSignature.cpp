@@ -219,7 +219,7 @@ bool RootSignatureParser::ParseDescriptorTable() {
     HasComma = !TryConsumeExpectedToken(TokenKind::pu_comma);
   }
 
-  if (HasComma)
+  if (HasComma && Table.NumClauses != 0)
     return ReportError(); // report 'comma' denotes a required extra item
 
   if (ConsumeExpectedToken(TokenKind::pu_r_paren))

@@ -142,7 +142,8 @@ TEST_F(ParseHLSLRootSignatureTest, ParseValidDTClausesTest) {
               | Descriptors_Static_Keeping_Buffer_Bounds_Checks
       ),
       visibility = Shader_Visibility_Pixel
-    )
+    ),
+    DescriptorTable()
   )cc";
 
   TrivialModuleLoader ModLoader;
@@ -158,7 +159,7 @@ TEST_F(ParseHLSLRootSignatureTest, ParseValidDTClausesTest) {
   RootSignatureParser Parser(Elements, Tokens);
 
   ASSERT_FALSE(Parser.Parse());
-  ASSERT_EQ((int)Elements.size(), 5);
+  ASSERT_EQ((int)Elements.size(), 6);
 
   // Test default values are set correctly
   RootElement Elem = Elements[0];
@@ -211,6 +212,12 @@ TEST_F(ParseHLSLRootSignatureTest, ParseValidDTClausesTest) {
   ASSERT_EQ(Elem.Tag, RootElement::ElementType::DescriptorTable);
   ASSERT_EQ(Elem.Table.NumClauses, (uint32_t)4);
   ASSERT_EQ(Elem.Table.Visibility, ShaderVisibility::Pixel);
+
+  // Test generated DescriptorTable start has correct default values
+  Elem = Elements[5];
+  ASSERT_EQ(Elem.Tag, RootElement::ElementType::DescriptorTable);
+  ASSERT_EQ(Elem.Table.NumClauses, (uint32_t)0);
+  ASSERT_EQ(Elem.Table.Visibility, ShaderVisibility::All);
 
   delete PP;
 }
