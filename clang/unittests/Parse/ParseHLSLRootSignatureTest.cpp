@@ -39,18 +39,19 @@ protected:
     Target = TargetInfo::CreateTargetInfo(Diags, TargetOpts);
   }
 
-  Preprocessor *CreatePP(StringRef Source, TrivialModuleLoader &ModLoader) {
+  std::unique_ptr<Preprocessor> CreatePP(StringRef Source,
+                                         TrivialModuleLoader &ModLoader) {
     std::unique_ptr<llvm::MemoryBuffer> Buf =
         llvm::MemoryBuffer::getMemBuffer(Source);
     SourceMgr.setMainFileID(SourceMgr.createFileID(std::move(Buf)));
 
     HeaderSearch HeaderInfo(std::make_shared<HeaderSearchOptions>(), SourceMgr,
                             Diags, LangOpts, Target.get());
-    Preprocessor *PP =
-        new Preprocessor(std::make_shared<PreprocessorOptions>(), Diags,
-                         LangOpts, SourceMgr, HeaderInfo, ModLoader,
-                         /*IILookup =*/nullptr,
-                         /*OwnsHeaderSearch =*/false);
+    std::unique_ptr<Preprocessor> PP = std::make_unique<Preprocessor>(
+        std::make_shared<PreprocessorOptions>(), Diags, LangOpts, SourceMgr,
+        HeaderInfo, ModLoader,
+        /*IILookup =*/nullptr,
+        /*OwnsHeaderSearch =*/false);
     PP->Initialize(*Target);
     PP->EnterMainSourceFile();
     return PP;
@@ -107,7 +108,7 @@ TEST_F(ParseHLSLRootSignatureTest, LexValidTokensTest) {
   )cc";
 
   TrivialModuleLoader ModLoader;
-  Preprocessor *PP = CreatePP(Source, ModLoader);
+  auto PP = CreatePP(Source, ModLoader);
   auto TokLoc = SourceLocation();
 
   RootSignatureLexer Lexer(Source, TokLoc, *PP);
@@ -123,8 +124,6 @@ TEST_F(ParseHLSLRootSignatureTest, LexValidTokensTest) {
   };
 
   CheckTokens(Tokens, Expected);
-
-  delete PP;
 }
 
 } // anonymous namespace

@@ -20,7 +20,7 @@ bool RootSignatureLexer::LexNumber(RootSignatureToken &Result) {
   // Retrieve the possible number
   StringRef NumSpelling = Buffer.take_while(IsPreprocessorNumberChar);
 
-  // Parse the numeric value and so semantic checks on its specification
+  // Parse the numeric value and do semantic checks on its specification
   clang::NumericLiteralParser Literal(NumSpelling, SourceLoc,
                                       PP.getSourceManager(), PP.getLangOpts(),
                                       PP.getTargetInfo(), PP.getDiagnostics());
