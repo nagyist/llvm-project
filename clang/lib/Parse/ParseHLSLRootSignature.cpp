@@ -28,19 +28,18 @@ bool RootSignatureLexer::LexNumber(RootSignatureToken &Result) {
   if (Literal.hadError)
     return true; // Error has already been reported so just return
 
-  // Retrieve the number value to store into the token
-  if (Literal.isIntegerLiteral()) {
-    Result.Kind = TokenKind::int_literal;
-
-    APSInt X = APSInt(32, Result.Signed);
-    if (Literal.GetIntegerValue(X))
-      return true; // TODO: Report overflow error
-
-    X = Negative ? -X : X;
-    Result.IntLiteral = (uint32_t)X.getZExtValue();
-  } else {
+  if (!Literal.isIntegerLiteral())
     return true; // TODO: report unsupported number literal specification
-  }
+
+  // Retrieve the number value to store into the token
+  Result.Kind = TokenKind::int_literal;
+
+  APSInt X = APSInt(32, Result.Signed);
+  if (Literal.GetIntegerValue(X))
+    return true; // TODO: Report overflow error
+
+  X = Negative ? -X : X;
+  Result.IntLiteral = (uint32_t)X.getZExtValue();
 
   AdvanceBuffer(NumSpelling.size());
   return false;
