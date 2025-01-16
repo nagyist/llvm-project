@@ -2090,6 +2090,10 @@ void ModuleImport::convertParameterAttributes(llvm::Function *func,
 void ModuleImport::convertParameterAttributes(llvm::CallBase *call,
                                               CallOpInterface callOp,
                                               OpBuilder &builder) {
+  auto argAttrsOpInterface =
+      dyn_cast<ArgumentAttributesOpInterface>(callOp.getOperation());
+  if (!argAttrsOpInterface)
+    return;
   auto llvmAttrs = call->getAttributes();
   SmallVector<llvm::AttributeSet> llvmArgAttrsSet;
   bool anyArgAttrs = false;
@@ -2108,7 +2112,7 @@ void ModuleImport::convertParameterAttributes(llvm::CallBase *call,
     SmallVector<DictionaryAttr> argAttrs;
     for (auto &llvmArgAttrs : llvmArgAttrsSet)
       argAttrs.emplace_back(convertParameterAttribute(llvmArgAttrs, builder));
-    callOp.setArgAttrsAttr(getArrayAttr(argAttrs));
+    argAttrsOpInterface.setArgAttrsAttr(getArrayAttr(argAttrs));
   }
 
   llvm::AttributeSet llvmResAttr = llvmAttrs.getRetAttrs();
@@ -2116,7 +2120,7 @@ void ModuleImport::convertParameterAttributes(llvm::CallBase *call,
     return;
   SmallVector<DictionaryAttr, 1> resAttrs;
   resAttrs.emplace_back(convertParameterAttribute(llvmResAttr, builder));
-  callOp.setResAttrsAttr(getArrayAttr(resAttrs));
+  argAttrsOpInterface.setResAttrsAttr(getArrayAttr(resAttrs));
 }
 
 LogicalResult ModuleImport::processFunction(llvm::Function *func) {
