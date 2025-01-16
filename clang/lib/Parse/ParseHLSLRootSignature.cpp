@@ -6,19 +6,20 @@ namespace root_signature {
 
 // Lexer Definitions
 
-static bool IsPreprocessorNumberChar(char C) {
+static bool IsNumberChar(char C) {
   // TODO: extend for float support with or without hexadecimal/exponent
   return isdigit(C); // integer support
 }
 
 bool RootSignatureLexer::LexNumber(RootSignatureToken &Result) {
   // NumericLiteralParser does not handle the sign so we will manually apply it
-  Result.Signed = Buffer.front() == '-';
+  bool Negative = Buffer.front() == '-';
+  Result.Signed = Negative || Buffer.front() == '+';
   if (Result.Signed)
     AdvanceBuffer();
 
   // Retrieve the possible number
-  StringRef NumSpelling = Buffer.take_while(IsPreprocessorNumberChar);
+  StringRef NumSpelling = Buffer.take_while(IsNumberChar);
 
   // Parse the numeric value and do semantic checks on its specification
   clang::NumericLiteralParser Literal(NumSpelling, SourceLoc,
@@ -35,7 +36,7 @@ bool RootSignatureLexer::LexNumber(RootSignatureToken &Result) {
     if (Literal.GetIntegerValue(X))
       return true; // TODO: Report overflow error
 
-    X = Result.Signed ? -X : X;
+    X = Negative ? -X : X;
     Result.IntLiteral = (uint32_t)X.getZExtValue();
   } else {
     return true; // TODO: report unsupported number literal specification
@@ -84,7 +85,7 @@ bool RootSignatureLexer::LexToken(RootSignatureToken &Result) {
   }
 
   // Numeric constant
-  if (isdigit(C) || C == '-')
+  if (isdigit(C) || C == '-' || C == '+')
     return LexNumber(Result);
 
   // All following tokens require at least one additional character
@@ -101,7 +102,8 @@ bool RootSignatureLexer::LexToken(RootSignatureToken &Result) {
     if (LexNumber(Result))
       return true;
 
-    // Lex number could also parse a float so ensure it was an unsigned int
+    // Lex number could also parse a signed int/float so ensure it was an
+    // unsigned int
     if (Result.Kind != TokenKind::int_literal || Result.Signed)
       return true; // Return invalid number literal for register error
 

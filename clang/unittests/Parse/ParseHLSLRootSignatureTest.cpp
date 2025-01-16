@@ -105,6 +105,8 @@ TEST_F(ParseHLSLRootSignatureTest, LexValidTokensTest) {
     shader_visibility_pixel
     shader_visibility_amplification
     shader_visibility_mesh
+
+    42 +42
   )cc";
 
   TrivialModuleLoader ModLoader;
@@ -121,6 +123,8 @@ TEST_F(ParseHLSLRootSignatureTest, LexValidTokensTest) {
   SmallVector<TokenKind> Expected = {
 #define TOK(NAME) TokenKind::NAME,
 #include "clang/Parse/HLSLRootSignatureTokenKinds.def"
+      TokenKind::int_literal,
+      TokenKind::int_literal,
   };
 
   CheckTokens(Tokens, Expected);
