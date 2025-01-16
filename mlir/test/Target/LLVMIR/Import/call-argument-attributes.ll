@@ -6,9 +6,6 @@ declare void @somefunc(i32, ptr)
 ; CHECK-LABEL: llvm.func @test_call_arg_attrs_direct(
 ; CHECK-SAME:    %[[VAL_0:.*]]: i32,
 ; CHECK-SAME:    %[[VAL_1:.*]]: !llvm.ptr)
-llvm.func @test_call_arg_attrs_direct(%arg0: i32, %arg1: !llvm.ptr) {
-declare void @somefunc(i32, ptr)
-; CHECK-LABEL: @test_call_arg_attrs_direct
 define void @test_call_arg_attrs_direct(i32 %0, ptr %1) {
   ; CHECK: llvm.call @somefunc(%[[VAL_0]], %[[VAL_1]]) : (i32, !llvm.ptr {llvm.byval = i64}) -> ()
   call void @somefunc(i32 %0, ptr byval(i64) %1)
