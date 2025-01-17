@@ -1599,9 +1599,12 @@ void MappingTraits<std::unique_ptr<ELFYAML::Chunk>>::mapping(
     // When the Type string does not have a "SHT_" prefix, we know it is not a
     // description of a regular ELF output section.
     TypeStr = getStringValue(IO, "Type");
-    if (TypeStr.starts_with("SHT_") || isInteger(TypeStr))
+    if (TypeStr.starts_with("SHT_") || isInteger(TypeStr)) {
       IO.mapRequired("Type", Type);
-  }
+      if (IO.error())
+        Type = ELF::SHT_NULL;
+    }
+   }
 
   if (TypeStr == "Fill") {
     assert(!IO.outputting()); // We don't dump fills currently.
@@ -1747,7 +1750,9 @@ void MappingTraits<std::unique_ptr<ELFYAML::Chunk>>::mapping(
 std::string MappingTraits<std::unique_ptr<ELFYAML::Chunk>>::validate(
     IO &io, std::unique_ptr<ELFYAML::Chunk> &C) {
   if (const auto *F = dyn_cast<ELFYAML::Fill>(C.get())) {
-    if (F->Pattern && F->Pattern->binary_size() != 0 && !F->Size)
+    // Can't check the `Size`, as it's required and may be left uninitialized by
+    // previous error.
+    if (!io.error() && F->Pattern && F->Pattern->binary_size() != 0 && !F->Size)
       return "\"Size\" can't be 0 when \"Pattern\" is not empty";
     return "";
   }
