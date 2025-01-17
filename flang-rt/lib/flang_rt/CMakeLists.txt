@@ -139,7 +139,6 @@ if (NOT WIN32)
 
   # Select a default runtime, which is used for unit and regression tests.
   get_target_property(default_target flang_rt.default ALIASED_TARGET)
-  add_library(flang_rt ALIAS "${default_target}")
   add_library(flang_rt.unittest ALIAS "${default_target}")
 else()
   # Target for building all versions of the runtime
