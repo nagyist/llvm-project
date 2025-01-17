@@ -54,7 +54,7 @@ macro(enable_cuda_compilation name files)
     # Apply configuration options
     if (FLANG_RT_CUDA_RUNTIME_PTX_WITHOUT_GLOBAL_VARS)
       target_compile_definitions(obj.${name}PTX
-        PRIVATE FLANG_RT_NO_GLOBAL_VAR_DEFS
+        PRIVATE FLANG_RUNTIME_NO_GLOBAL_VAR_DEFS
         )
     endif()
 

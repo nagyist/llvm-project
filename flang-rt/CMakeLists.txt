@@ -23,7 +23,6 @@ set(FLANG_RT_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
 set(FLANG_RT_BINARY_DIR "${CMAKE_CURRENT_BINARY_DIR}")
 set(FLANG_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../flang")
 
-
 # CMake 3.24 is the first version of CMake that directly recognizes Flang.
 # LLVM's requirement is only CMake 3.20, teach CMake 3.20-3.23 how to use Flang.
 if (CMAKE_VERSION VERSION_LESS "3.24")
