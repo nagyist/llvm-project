@@ -97,8 +97,6 @@ config.substitutions.append(("%include", os.path.join(config.flang_source_dir, "
 # Library path of libflang_rt.a (for lib search path when using non-Flang driver for linking)
 config.substitutions.append(("%libdir", config.flang_rt_output_resource_lib_dir))
 
-# Additional library depedendencies the that Flang driver does not add itself.
-deplibs = []
+# For CUDA offloading, additional steps (device linking) and libraries (cudart) are needed.
 if config.flang_rt_experimental_offload_support == "CUDA":
-    deplibs.append("-lcudart")
-config.substitutions.append(("%deplibs", shjoin(deplibs)))
+    config.available_features.add("offload-cuda")
