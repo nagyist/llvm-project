@@ -1044,39 +1044,6 @@ AbstractType::lookup(StringRef name, MLIRContext *context) {
 /// This should not be used directly.
 StorageUniquer &MLIRContext::getTypeUniquer() { return getImpl().typeUniquer; }
 
-Float4E2M1FNType Float4E2M1FNType::get(MLIRContext *context) {
-  return context->getImpl().f4E2M1FNTy;
-}
-Float6E2M3FNType Float6E2M3FNType::get(MLIRContext *context) {
-  return context->getImpl().f6E2M3FNTy;
-}
-Float6E3M2FNType Float6E3M2FNType::get(MLIRContext *context) {
-  return context->getImpl().f6E3M2FNTy;
-}
-Float8E5M2Type Float8E5M2Type::get(MLIRContext *context) {
-  return context->getImpl().f8E5M2Ty;
-}
-Float8E4M3Type Float8E4M3Type::get(MLIRContext *context) {
-  return context->getImpl().f8E4M3Ty;
-}
-Float8E4M3FNType Float8E4M3FNType::get(MLIRContext *context) {
-  return context->getImpl().f8E4M3FNTy;
-}
-Float8E5M2FNUZType Float8E5M2FNUZType::get(MLIRContext *context) {
-  return context->getImpl().f8E5M2FNUZTy;
-}
-Float8E4M3FNUZType Float8E4M3FNUZType::get(MLIRContext *context) {
-  return context->getImpl().f8E4M3FNUZTy;
-}
-Float8E4M3B11FNUZType Float8E4M3B11FNUZType::get(MLIRContext *context) {
-  return context->getImpl().f8E4M3B11FNUZTy;
-}
-Float8E3M4Type Float8E3M4Type::get(MLIRContext *context) {
-  return context->getImpl().f8E3M4Ty;
-}
-Float8E8M0FNUType Float8E8M0FNUType::get(MLIRContext *context) {
-  return context->getImpl().f8E8M0FNUTy;
-}
 BFloat16Type BFloat16Type::get(MLIRContext *context) {
   return context->getImpl().bf16Ty;
 }
