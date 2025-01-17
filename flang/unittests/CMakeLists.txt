@@ -13,6 +13,11 @@ set_target_properties(FlangUnitTests PROPERTIES FOLDER "Flang/Tests")
 include_directories("${FLANG_RT_SOURCE_DIR}/include")
 
 function(add_flang_unittest_offload_properties target)
+  # Do not apply runtime properties if not even compiling the runtime.
+  if (NOT FLANG_INCLUDE_RUNTIME)
+    return ()
+  endif ()
+
   # Set CUDA_RESOLVE_DEVICE_SYMBOLS.
   if (FLANG_EXPERIMENTAL_CUDA_RUNTIME)
     set_target_properties(${target}
