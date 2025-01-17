@@ -97,7 +97,7 @@ macro(enable_omp_offload_compilation name files)
       set_source_files_properties(${files} PROPERTIES COMPILE_OPTIONS
         "${OMP_COMPILE_OPTIONS}"
         )
-      target_link_options(${name} PUBLIC ${OMP_COMPILE_OPTIONS})
+      target_link_options(${name}.static PUBLIC ${OMP_COMPILE_OPTIONS})
 
       # Enable "declare target" in the source code.
       set_source_files_properties(${files}
