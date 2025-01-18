@@ -346,7 +346,8 @@ void MappingTraits<MachOYAML::Section>::mapping(IO &IO,
 std::string
 MappingTraits<MachOYAML::Section>::validate(IO &IO,
                                             MachOYAML::Section &Section) {
-  if (Section.content && Section.size < Section.content->binary_size())
+  if (!IO.error() && Section.content &&
+      Section.size < Section.content->binary_size())
     return "Section size must be greater than or equal to the content size";
   return "";
 }
