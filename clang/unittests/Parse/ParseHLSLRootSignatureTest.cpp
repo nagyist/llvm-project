@@ -147,7 +147,7 @@ TEST_F(ParseHLSLRootSignatureTest, ParseValidDTClausesTest) {
   )cc";
 
   TrivialModuleLoader ModLoader;
-  Preprocessor *PP = CreatePP(Source, ModLoader);
+  auto PP = CreatePP(Source, ModLoader);
   auto TokLoc = SourceLocation();
 
   RootSignatureLexer Lexer(Source, TokLoc, *PP);
@@ -218,8 +218,6 @@ TEST_F(ParseHLSLRootSignatureTest, ParseValidDTClausesTest) {
   ASSERT_EQ(Elem.Tag, RootElement::ElementType::DescriptorTable);
   ASSERT_EQ(Elem.Table.NumClauses, (uint32_t)0);
   ASSERT_EQ(Elem.Table.Visibility, ShaderVisibility::All);
-
-  delete PP;
 }
 
 } // anonymous namespace
